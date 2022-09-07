@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TilePane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+   <children>
+      <VBox prefHeight="546.0" prefWidth="713.0" styleClass="bg" stylesheets="@style.css">
+         <children>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="682.0" styleClass="sign_up_bg" stylesheets="@style.css">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="15.0" top="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <children>
+                  <Text fill="#ebf4fa" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" textAlignment="CENTER" wrappingWidth="622.9366912841797">
+                     <font>
+                        <Font name="Cambria Bold" size="36.0" />
+                     </font>
+                  </Text>
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="650.0" translateX="-623.0" translateY="60.0">
+                     <children>
+                        <Text fill="#ebf4fa" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Name : " translateY="24.0">
+                           <font>
+                              <Font name="Cambria" size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="149.0" promptText="First Name" styleClass="sign-in-text-input" stylesheets="@style.css" translateX="145.0" translateY="2.0" />
+                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="149.0" promptText="Last Name" styleClass="sign-in-text-input" stylesheets="@style.css" translateX="300.0" translateY="-25.0" />
+                        <Text fill="#ebf4fa" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Username : " translateY="10.0">
+                           <font>
+                              <Font name="Cambria" size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="302.0" styleClass="sign-in-text-input" stylesheets="@style.css" translateX="145.0" translateY="-12.0" />
+                        <Text fill="#ebf4fa" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Password : " translateY="25.0">
+                           <font>
+                              <Font name="Cambria" size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="302.0" styleClass="sign-in-text-input" stylesheets="@style.css" translateX="145.0" translateY="3.0" />
+                        <Text fill="#ebf4fa" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Email-id  : " translateY="38.0">
+                           <font>
+                              <Font name="Cambria" size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="300.0" styleClass="sign-in-text-input" stylesheets="@style.css" translateX="145.0" translateY="15.0" />
+                        <Text fill="#ebf4fa" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Mobile no.  : " translateY="52.0">
+                           <font>
+                              <Font name="Cambria" size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="168.0" styleClass="sign-in-text-input" stylesheets="@style.css" translateX="146.0" translateY="29.0" />
+                        <Text fill="#ebf4fa" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Age  : " translateY="65.0">
+                           <font>
+                              <Font name="Cambria" size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="56.0" styleClass="sign-in-text-input" stylesheets="@style.css" translateX="144.0" translateY="43.0" />
+                        <ImageView fitHeight="260.0" fitWidth="134.0" pickOnBounds="true" translateX="500.0" translateY="-300.0">
+                           <image>
+                              <Image url="@tranparent_coins_black_bg.png" />
+                           </image>
+                        </ImageView>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToHome" prefHeight="35.0" prefWidth="103.0" styleClass="sign-in-text-input" stylesheets="@style.css" text="Submit" translateX="265.0" translateY="-200.0">
+                           <font>
+                              <Font name="Cambria" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</TilePane>

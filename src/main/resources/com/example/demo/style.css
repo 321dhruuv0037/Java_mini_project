@@ -1,0 +1,29 @@
+.bg{
+    -fx-background-color: #FFFFFF; //v1 #EBF4FA
+}
+
+.title-bg{
+    -fx-background-color: #000000; //v1 #C0C0C0
+}
+
+.sign-in-bg{
+    -fx-background-color: #000000; //v1 #C0C0C0
+    -fx-background-radius: 50;
+}
+
+.sign-in-text-input{
+    -fx-background-color: #FFFFFF; //v1 #EBF4FA
+    -fx-background-radius: 15;
+}
+
+.sign_up_bg{
+    -fx-background-color: #000000; //v1 #C0C0C0
+    -fx-background-radius: 90;
+
+}
+
+.menu_opt_white_btn{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 50;
+}
+
