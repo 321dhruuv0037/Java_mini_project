@@ -21,7 +21,7 @@
                <children>
                   <VBox prefHeight="466.0" prefWidth="657.0" stylesheets="@style.css">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="115.0" prefWidth="221.0" styleClass="menu_opt_left_pointy" text="Investment" textAlignment="CENTER" translateX="70.0" translateY="77.0">
+                        <Button mnemonicParsing="false" onAction="#switchToInvestment" prefHeight="115.0" prefWidth="221.0" styleClass="menu_opt_left_pointy" text="Investment" textAlignment="CENTER" translateX="70.0" translateY="77.0">
                            <font>
                               <Font name="Cambria" size="26.0" />
                            </font>
@@ -41,7 +41,7 @@
                               <Font name="Cambria" size="26.0" />
                            </font>
                         </Button>
-                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToHome" prefHeight="42.0" prefWidth="107.0" styleClass="white_round_button" text="Exit" translateX="266.0" translateY="-26.0">
+                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToHome" prefHeight="42.0" prefWidth="107.0" styleClass="white_round_button" text="Home" translateX="266.0" translateY="-26.0">
                            <font>
                               <Font name="Cambria" size="23.0" />
                            </font>
