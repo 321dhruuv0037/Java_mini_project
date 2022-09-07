@@ -22,8 +22,17 @@
 
 }
 
-.menu_opt_white_btn{
+.menu_opt_right_pointy{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 50 0 50 0;
+}
+
+.menu_opt_left_pointy{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0 50 0 50;
+}
+
+.white_round_button{
     -fx-background-color: #ffffff;
     -fx-background-radius: 50;
 }
-

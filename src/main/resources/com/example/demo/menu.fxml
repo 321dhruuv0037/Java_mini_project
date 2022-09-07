@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <TilePane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
    <children>
       <VBox prefHeight="546.0" prefWidth="713.0" styleClass="bg" stylesheets="@style.css">
@@ -22,27 +21,27 @@
                <children>
                   <VBox prefHeight="466.0" prefWidth="657.0" stylesheets="@style.css">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="115.0" prefWidth="221.0" styleClass="menu_opt_white_btn" text="Investment" textAlignment="CENTER" translateX="70.0" translateY="77.0">
+                        <Button mnemonicParsing="false" prefHeight="115.0" prefWidth="221.0" styleClass="menu_opt_left_pointy" text="Investment" textAlignment="CENTER" translateX="70.0" translateY="77.0">
                            <font>
                               <Font name="Cambria" size="26.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="115.0" prefWidth="221.0" styleClass="menu_opt_white_btn" text="Loan" textAlignment="CENTER" translateX="345.0" translateY="-28.0">
+                        <Button mnemonicParsing="false" prefHeight="115.0" prefWidth="221.0" styleClass="menu_opt_right_pointy" text="Loan" textAlignment="CENTER" translateX="345.0" translateY="-28.0">
                            <font>
                               <Font name="Cambria" size="26.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="115.0" prefWidth="221.0" styleClass="menu_opt_white_btn" text="Financial Advisor" textAlignment="CENTER" translateX="70.0" translateY="27.0" wrapText="true">
+                        <Button mnemonicParsing="false" prefHeight="115.0" prefWidth="221.0" styleClass="menu_opt_right_pointy" text="Financial Advisor" textAlignment="CENTER" translateX="70.0" translateY="27.0" wrapText="true">
                            <font>
                               <Font name="Cambria" size="26.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="115.0" prefWidth="221.0" styleClass="menu_opt_white_btn" text="Feedback" textAlignment="CENTER" translateX="345.0" translateY="-80.0">
+                        <Button mnemonicParsing="false" prefHeight="115.0" prefWidth="221.0" styleClass="menu_opt_left_pointy" text="Feedback" textAlignment="CENTER" translateX="345.0" translateY="-80.0">
                            <font>
                               <Font name="Cambria" size="26.0" />
                            </font>
                         </Button>
-                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToHome" prefHeight="42.0" prefWidth="107.0" styleClass="menu_opt_white_btn" text="Exit" translateX="266.0" translateY="-26.0">
+                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToHome" prefHeight="42.0" prefWidth="107.0" styleClass="white_round_button" text="Exit" translateX="266.0" translateY="-26.0">
                            <font>
                               <Font name="Cambria" size="23.0" />
                            </font>
