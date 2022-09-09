@@ -26,7 +26,7 @@
                               <Font name="Cambria" size="26.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="115.0" prefWidth="221.0" styleClass="menu_opt_right_pointy" text="Loan" textAlignment="CENTER" translateX="345.0" translateY="-28.0">
+                        <Button mnemonicParsing="false" onAction="#switchToLoan" prefHeight="115.0" prefWidth="221.0" styleClass="menu_opt_right_pointy" text="Loan" textAlignment="CENTER" translateX="345.0" translateY="-28.0">
                            <font>
                               <Font name="Cambria" size="26.0" />
                            </font>

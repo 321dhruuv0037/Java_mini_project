@@ -55,4 +55,12 @@ public class HelloController {
         stage.show();
     }
 
+    public void switchToLoan(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("loan.fxml")); //pass scene name here
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }
