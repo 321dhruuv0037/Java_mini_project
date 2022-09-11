@@ -60,12 +60,12 @@ public class HelloController {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();
     }
-        public void switchToForgotPassword(ActionEvent event) throws IOException {
+    public void switchToForgotPassword(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("forgot_password.fxml")); //pass scene name here
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        stage.show();
         stage.setScene(scene);
         stage.show();
     }
