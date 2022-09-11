@@ -15,7 +15,7 @@ public class HelloApplication extends Application {
             stage.setScene(scene);
             stage.show();
             stage.setResizable(false);
-            stage.setTitle("CREST : Personal Finance Portfolio Manager");
+            stage.setTitle("CREST : Personal Finance Portfolio Manager"); // set title of app
         } catch(Exception e) {
             e.printStackTrace();
         }
