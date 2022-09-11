@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <VBox prefHeight="544.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
             <VBox prefHeight="54.0" prefWidth="696.0">
@@ -24,16 +25,22 @@
             <Image url="@tranparent_coins.png" />
          </image></ImageView>
                   <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="355.0" styleClass="sign-in-bg" stylesheets="@style.css" translateX="35.0" translateY="26.0">
-                        <TextField fx:id="username" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="41.0" prefWidth="298.0" promptText="Enter username" styleClass="sign-in-text-input" stylesheets="@style.css" translateY="-90.0">
+                        <TextField fx:id="username" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="41.0" prefWidth="298.0" promptText="Enter username" styleClass="sign-in-text-input" stylesheets="@style.css" translateY="-43.0">
                            <font>
                               <Font name="Cambria" size="15.0" />
                            </font>
                         </TextField>
-         <PasswordField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="298.0" promptText="Enter Password" styleClass="sign-in-text-input" stylesheets="@style.css" translateY="-34.0">
+         <PasswordField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="298.0" promptText="Enter Password" styleClass="sign-in-text-input" stylesheets="@style.css">
             <font>
                <Font name="Cambria" size="15.0" />
             </font>
          </PasswordField>
+         <Button mnemonicParsing="false" onAction="#switchToForgotPassword" opacity="0.0" prefHeight="40.0" prefWidth="146.0" text="RESET PASSWORD" translateY="42.0" />
+         <Text fill="WHITE" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot password?" translateY="10.0">
+            <font>
+               <Font name="Cambria" size="16.0" />
+            </font>
+         </Text>
                         <Button fx:id="Sign_up" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToSignUp" prefHeight="36.0" prefWidth="104.0" styleClass="sign-in-text-input" stylesheets="@style.css" text="Sign Up" textFill="SILVER" translateX="70.0" translateY="47.0">
                            <font>
                               <Font name="Cambria" size="18.0" />
