@@ -69,7 +69,7 @@
                         <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="56.0" styleClass="sign-in-text-input" stylesheets="@style.css" translateX="144.0" translateY="43.0" />
                         <ImageView fitHeight="260.0" fitWidth="134.0" pickOnBounds="true" translateX="500.0" translateY="-300.0">
                            <image>
-                              <Image url="@tranparent_coins_black_bg.png" />
+                              <Image url="@images/tranparent_coins_black_bg.png" />
                            </image>
                         </ImageView>
                         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToHome" prefHeight="35.0" prefWidth="103.0" styleClass="sign-in-text-input" stylesheets="@style.css" text="Submit" translateX="265.0" translateY="-200.0">

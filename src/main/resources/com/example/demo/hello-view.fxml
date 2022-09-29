@@ -22,7 +22,7 @@
             <HBox prefHeight="498.0" prefWidth="706.0" styleClass="bg" stylesheets="@style.css">
                   <ImageView fitHeight="377.0" fitWidth="290.0" pickOnBounds="true" translateY="53.0">
          <image>
-            <Image url="@tranparent_coins.png" />
+            <Image url="@images/tranparent_coins.png" />
          </image></ImageView>
                   <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="355.0" styleClass="sign-in-bg" stylesheets="@style.css" translateX="35.0" translateY="26.0">
                         <TextField fx:id="username" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="41.0" prefWidth="298.0" promptText="Enter username" styleClass="sign-in-text-input" stylesheets="@style.css" translateY="-43.0">

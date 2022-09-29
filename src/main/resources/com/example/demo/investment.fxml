@@ -22,7 +22,7 @@
                <children>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="634.0" translateY="69.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="637.0" styleClass="white_round_button" stylesheets="@style.css" text="Fixed Deposit" translateY="23.0">
+                        <Button mnemonicParsing="false" onAction="#switchToFD" prefHeight="56.0" prefWidth="637.0" styleClass="white_round_button" stylesheets="@style.css" text="Fixed Deposit" translateY="23.0">
                            <font>
                               <Font name="Cambria" size="20.0" />
                            </font>
