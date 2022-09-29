@@ -87,16 +87,16 @@ public class LoginController extends NullPointerException{
                 else {
                     errorUsername.setText("");
                     username.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
+                    username.setText("");
                     errorPassword.setText("⚠ Invalid User!");
                     password.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
-
+                    password.setText("");
                 }
 
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
 
     }
 
