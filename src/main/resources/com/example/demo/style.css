@@ -36,3 +36,7 @@
     -fx-background-color: #ffffff;
     -fx-background-radius: 50;
 }
+
+.gradient_bg{
+    -fx-background-color:  linear-gradient(to top, #000000, #C0C0C0, #ffffff); //black to white
+}
