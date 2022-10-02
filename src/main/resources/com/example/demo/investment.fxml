@@ -32,7 +32,7 @@
                               <Font name="Cambria" size="20.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="637.0" styleClass="white_round_button" stylesheets="@style.css" text="SIP" translateY="65.0">
+                        <Button mnemonicParsing="false" onAction="#switchToSIP" prefHeight="56.0" prefWidth="637.0" styleClass="white_round_button" stylesheets="@style.css" text="SIP" translateY="65.0">
                            <font>
                               <Font name="Cambria" size="20.0" />
                            </font>
@@ -54,7 +54,7 @@
                         <Font name="Cambria Bold" size="36.0" />
                      </font>
                   </Text>
-                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToHome" prefHeight="27.0" prefWidth="72.0" styleClass="menu_opt_right_pointy" stylesheets="@style.css" text="Home" translateX="-722.0" translateY="8.0">
+                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToHome" prefHeight="27.0" prefWidth="72.0" styleClass="menu_opt_right_pointy" stylesheets="@style.css" text="Exit" translateX="-722.0" translateY="8.0">
                      <font>
                         <Font name="Cambria" size="15.0" />
                      </font>

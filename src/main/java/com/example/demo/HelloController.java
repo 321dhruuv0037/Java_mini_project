@@ -16,6 +16,18 @@ public class HelloController {
     private Scene scene;
     private Parent root;
 
+    public static String Username = null;
+    public static String getUsername() {
+        return Username;
+    }
+
+    public static void setUsername(String username) {
+        Username = username;
+        System.out.println(username);
+    }
+
+
+
 
     public void switchToHome(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("hello-view.fxml")); //pass scene name here
@@ -71,5 +83,14 @@ public class HelloController {
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
-        }
+    }
+
+    public void switchToSIP(ActionEvent event) throws IOException {
+                root = FXMLLoader.load(getClass().getResource("SIP.fxml")); //pass scene name here
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+    }
+
+
 }

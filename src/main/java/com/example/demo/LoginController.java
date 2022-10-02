@@ -20,6 +20,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import static com.example.demo.HelloController.setUsername;
+
 public class LoginController extends NullPointerException{
 
     @FXML
@@ -74,11 +76,14 @@ public class LoginController extends NullPointerException{
             while(queryResult.next()){
                 if (queryResult.getInt(1)==1){
                     try {
+                        String u = (username.getText());
                         root = FXMLLoader.load(getClass().getResource("menu.fxml")); //pass scene name here
                         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                         scene = new Scene(root);
                         stage.setScene(scene);
                         stage.show();
+                        System.out.println(u);
+                        setUsername(String.valueOf(u));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
