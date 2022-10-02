@@ -2,86 +2,199 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TilePane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="811.0" styleClass="bg" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SignUpController">
    <children>
-      <VBox prefHeight="546.0" prefWidth="713.0" styleClass="bg" stylesheets="@style.css">
+      <VBox alignment="TOP_CENTER" layoutX="-2.0" prefHeight="511.0" prefWidth="673.0" style="-fx-background-radius: 50;" styleClass="title-bg" stylesheets="@style.css" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
-            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="682.0" styleClass="sign_up_bg" stylesheets="@style.css">
-               <VBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="15.0" top="20.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </padding>
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="7.0" prefWidth="655.0">
                <children>
-                  <Text fill="#ebf4fa" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" textAlignment="CENTER" wrappingWidth="622.9366912841797">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" translateX="43.0" translateY="5.0" wrappingWidth="81.26220703125">
                      <font>
-                        <Font name="Cambria Bold" size="36.0" />
+                        <Font name="Cambria" size="25.0" />
                      </font>
                   </Text>
-                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="650.0" translateX="-623.0" translateY="60.0">
-                     <children>
-                        <Text fill="#ebf4fa" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Name : " translateY="24.0">
-                           <font>
-                              <Font name="Cambria" size="18.0" />
-                           </font>
-                        </Text>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="149.0" promptText="First Name" styleClass="sign-in-text-input" stylesheets="@style.css" translateX="145.0" translateY="2.0" />
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="149.0" promptText="Last Name" styleClass="sign-in-text-input" stylesheets="@style.css" translateX="300.0" translateY="-25.0" />
-                        <Text fill="#ebf4fa" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Username : " translateY="10.0">
-                           <font>
-                              <Font name="Cambria" size="18.0" />
-                           </font>
-                        </Text>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="302.0" styleClass="sign-in-text-input" stylesheets="@style.css" translateX="145.0" translateY="-12.0" />
-                        <Text fill="#ebf4fa" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Password : " translateY="25.0">
-                           <font>
-                              <Font name="Cambria" size="18.0" />
-                           </font>
-                        </Text>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="302.0" styleClass="sign-in-text-input" stylesheets="@style.css" translateX="145.0" translateY="3.0" />
-                        <Text fill="#ebf4fa" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Email-id  : " translateY="38.0">
-                           <font>
-                              <Font name="Cambria" size="18.0" />
-                           </font>
-                        </Text>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="300.0" styleClass="sign-in-text-input" stylesheets="@style.css" translateX="145.0" translateY="15.0" />
-                        <Text fill="#ebf4fa" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Mobile no.  : " translateY="52.0">
-                           <font>
-                              <Font name="Cambria" size="18.0" />
-                           </font>
-                        </Text>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="168.0" styleClass="sign-in-text-input" stylesheets="@style.css" translateX="146.0" translateY="29.0" />
-                        <Text fill="#ebf4fa" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Age  : " translateY="65.0">
-                           <font>
-                              <Font name="Cambria" size="18.0" />
-                           </font>
-                        </Text>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="56.0" styleClass="sign-in-text-input" stylesheets="@style.css" translateX="144.0" translateY="43.0" />
-                        <ImageView fitHeight="260.0" fitWidth="134.0" pickOnBounds="true" translateX="500.0" translateY="-300.0">
-                           <image>
-                              <Image url="@images/tranparent_coins_black_bg.png" />
-                           </image>
-                        </ImageView>
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToHome" prefHeight="35.0" prefWidth="103.0" styleClass="sign-in-text-input" stylesheets="@style.css" text="Submit" translateX="265.0" translateY="-200.0">
-                           <font>
-                              <Font name="Cambria" size="18.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </VBox>
+                  <Button mnemonicParsing="false" onAction="#switchToHome" prefHeight="30.0" prefWidth="78.0" styleClass="white_round_button" text="Back" translateX="250.0" translateY="10.0">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="61.0" prefWidth="700.0" stylesheets="@style.css">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="      Enter Name " wrappingWidth="173.3367042541504">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="8.2015380859375">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="Fname" prefHeight="26.0" prefWidth="164.0" promptText="First Name" styleClass="white_round_button" stylesheets="@style.css">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="Lname" prefHeight="26.0" prefWidth="164.0" promptText="Last Name" styleClass="white_round_button" translateX="10.0">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label fx:id="errorName" prefHeight="46.0" prefWidth="175.0" textFill="#c31010" translateX="14.0" />
+               </children>
+               <VBox.margin>
+                  <Insets right="10.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="61.0" prefWidth="700.0" stylesheets="@style.css">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="    Enter Username " wrappingWidth="166.1367530822754">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="8.2015380859375">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="username" prefHeight="30.0" prefWidth="338.0" styleClass="white_round_button" stylesheets="@style.css">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="errorUsername" prefHeight="46.0" prefWidth="184.0" textFill="#c31010" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="61.0" prefWidth="700.0" stylesheets="@style.css">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="    Enter Password" wrappingWidth="165.33676528930664">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="8.2015380859375">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Text>
+                  <PasswordField fx:id="password" prefHeight="30.0" prefWidth="338.0" styleClass="white_round_button" />
+                  <Label fx:id="errorPassword" prefHeight="46.0" prefWidth="185.0" textFill="#c31010" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="61.0" prefWidth="700.0" stylesheets="@style.css">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="    Enter Email_id" wrappingWidth="166.1367530822754">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="8.2015380859375">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="email" prefHeight="30.0" prefWidth="336.0" styleClass="white_round_button" stylesheets="@style.css">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="errorEmail" prefHeight="46.0" prefWidth="185.0" textFill="#c31010" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="61.0" prefWidth="700.0" stylesheets="@style.css">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="    Enter Mobile no." wrappingWidth="169.3367042541504">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="8.2015380859375">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="mobno" prefHeight="30.0" prefWidth="336.0" styleClass="white_round_button" stylesheets="@style.css">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="errorMobNo" prefHeight="46.0" prefWidth="185.0" textFill="#c31010" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="61.0" prefWidth="700.0" stylesheets="@style.css">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="    Enter Favourite animal" wrappingWidth="167.7367286682129">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="8.2015380859375">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="favanimal" prefHeight="30.0" prefWidth="335.0" styleClass="white_round_button" stylesheets="@style.css">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="errorFavAnimal" prefHeight="46.0" prefWidth="185.0" textFill="#c31010" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="61.0" prefWidth="700.0" stylesheets="@style.css">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="    Enter  Age" wrappingWidth="167.7367286682129">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="8.2015380859375">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="age" prefHeight="30.0" prefWidth="334.0" styleClass="white_round_button" stylesheets="@style.css">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="errorAge" prefHeight="46.0" prefWidth="185.0" textFill="#c31010" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onSignUpButtonClick" prefHeight="30.0" prefWidth="121.0" styleClass="white_round_button" text="Log in">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Button>
                </children>
             </HBox>
          </children>
       </VBox>
    </children>
-</TilePane>
+</AnchorPane>

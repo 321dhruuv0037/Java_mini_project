@@ -13,7 +13,16 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class FDCalculator extends  NullPointerException{
+public class LumpSumCalculator extends NullPointerException {
+
+    @FXML
+    private Label errorInvested;
+
+    @FXML
+    private Label errorRate;
+
+    @FXML
+    private Label errorTime;
 
     @FXML
     private TextField invested;
@@ -27,18 +36,9 @@ public class FDCalculator extends  NullPointerException{
     @FXML
     private TextField time;
 
-    @FXML
-    private Label errorInvested;
-
-    @FXML
-    private Label errorRate;
-
-    @FXML
-    private Label errorTime;
-
     public void onCalculateButtonClick(ActionEvent event) throws IOException{
         if (!invested.getText().isBlank() && !time.getText().isBlank() && !rate.getText().isBlank()){
-            calculateFD(event);
+            calculateLumpSum(event);
         }
         else if (invested.getText().isBlank() && time.getText().isBlank() && rate.getText().isBlank()) {
             errorInvested.setText("⚠ Please enter principal");
@@ -105,16 +105,16 @@ public class FDCalculator extends  NullPointerException{
         }
 
     }
-    public void calculateFD(ActionEvent event){
-        double interest;
+    public void calculateLumpSum(ActionEvent event){
         float final_val;
+
         double p = Double.parseDouble(invested.getText());
 
         double t = Double.parseDouble(time.getText());
 
         double r = Double.parseDouble(rate.getText());
-        interest= (p*t*r)/100;
-        final_val= (float) (interest+p);
+
+        final_val = (float) (p *(Math.pow((1 + r / 100), t)));
 
         returns.setText(String.valueOf(final_val));
         invested.setStyle(null);
@@ -125,6 +125,7 @@ public class FDCalculator extends  NullPointerException{
         errorTime.setText("");
 
     }
+
     private Stage stage;
     private Scene scene;
     private Parent root;

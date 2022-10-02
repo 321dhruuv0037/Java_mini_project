@@ -42,18 +42,34 @@ public class HelloController {
     }
 
     public void switchToLoan(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("loan.fxml")); //pass scene name here
+        root = FXMLLoader.load(getClass().getResource("Loan.fxml")); //pass scene name here
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
     }
 
-     public void switchToFD(ActionEvent event) throws IOException {
+    public void switchToFD(ActionEvent event) throws IOException {
             root = FXMLLoader.load(getClass().getResource("FD.fxml")); //pass scene name here
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
+    }
+    public void switchToLumpSum(ActionEvent event) throws IOException {
+            root = FXMLLoader.load(getClass().getResource("LumpSum.fxml")); //pass scene name here
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+    }
+    public void switchToGold(ActionEvent event) throws IOException {
+            root = FXMLLoader.load(getClass().getResource("Gold.fxml")); //pass scene name here
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+    }
+    public void switchToInflation(ActionEvent event) throws IOException {
+                root = FXMLLoader.load(getClass().getResource("Inflation.fxml")); //pass scene name here
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
         }
-
-
 }

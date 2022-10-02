@@ -41,9 +41,9 @@
                               <Font name="Cambria" size="26.0" />
                            </font>
                         </Button>
-                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToHome" prefHeight="42.0" prefWidth="107.0" styleClass="white_round_button" text="Home" translateX="266.0" translateY="-26.0">
+                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToHome" prefHeight="42.0" prefWidth="107.0" styleClass="white_round_button" text="Log out" textFill="SILVER" translateX="266.0" translateY="-26.0">
                            <font>
-                              <Font name="Cambria" size="23.0" />
+                              <Font name="Cambria" size="20.0" />
                            </font>
                         </Button>
                      </children>

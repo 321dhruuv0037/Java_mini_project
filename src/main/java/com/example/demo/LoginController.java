@@ -99,7 +99,6 @@ public class LoginController extends NullPointerException{
         }
 
     }
-
     public void switchToForgotPassword(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("forgot_password.fxml")); //pass scene name here
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

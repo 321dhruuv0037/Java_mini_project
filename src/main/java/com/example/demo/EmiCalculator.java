@@ -7,13 +7,25 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-public class FDCalculator extends  NullPointerException{
+public class EmiCalculator extends NullPointerException {
+    @FXML
+    private MenuButton menu;
+
+    @FXML
+    private Label errorInvested;
+
+    @FXML
+    private Label errorRate;
+
+    @FXML
+    private Label errorTime;
 
     @FXML
     private TextField invested;
@@ -27,18 +39,9 @@ public class FDCalculator extends  NullPointerException{
     @FXML
     private TextField time;
 
-    @FXML
-    private Label errorInvested;
-
-    @FXML
-    private Label errorRate;
-
-    @FXML
-    private Label errorTime;
-
-    public void onCalculateButtonClick(ActionEvent event) throws IOException{
+    public void onCalculateButtonClick(ActionEvent event) {
         if (!invested.getText().isBlank() && !time.getText().isBlank() && !rate.getText().isBlank()){
-            calculateFD(event);
+            calculateEMI(event);
         }
         else if (invested.getText().isBlank() && time.getText().isBlank() && rate.getText().isBlank()) {
             errorInvested.setText("⚠ Please enter principal");
@@ -104,37 +107,58 @@ public class FDCalculator extends  NullPointerException{
             time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
         }
 
+
     }
-    public void calculateFD(ActionEvent event){
-        double interest;
-        float final_val;
+
+    public void calculateEMI(ActionEvent event){
+        float emi;
+
         double p = Double.parseDouble(invested.getText());
 
         double t = Double.parseDouble(time.getText());
 
         double r = Double.parseDouble(rate.getText());
-        interest= (p*t*r)/100;
-        final_val= (float) (interest+p);
 
-        returns.setText(String.valueOf(final_val));
+        t = t*12;
+        r = r/(12*100);
+        emi = (float) ((p*r*Math.pow(1+r,t))/(Math.pow(1+r,t)-1));
+
+        returns.setText(String.valueOf(emi));
         invested.setStyle(null);
         rate.setStyle(null);
         time.setStyle(null);
         errorInvested.setText("");
         errorRate.setText("");
         errorTime.setText("");
-
     }
+
     private Stage stage;
     private Scene scene;
     private Parent root;
 
-    public void switchToInvestment(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("investment.fxml")); //pass scene name here
+    public void switchToMenu(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("menu.fxml")); //pass scene name here
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void CarLoan(ActionEvent event){
+        menu.setText("Car Loan");
+        rate.setPromptText("6.8% to 9.45%");
+    }
+    public void EducationLoan(ActionEvent event){
+        menu.setText("Education Loan");
+        rate.setPromptText("10.40% to 10.65%");
+    }
+    public void PersonalLoan(ActionEvent event){
+        menu.setText("Personal Loan");
+        rate.setPromptText("10.5% to 21.00%");
+    }
+    public void HomeLoan(ActionEvent event){
+        menu.setText("Home Loan");
+        rate.setPromptText("7.8% to 9.6%");
     }
 
 }
