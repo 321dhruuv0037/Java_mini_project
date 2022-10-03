@@ -6,12 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class HelloController {
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -26,8 +27,7 @@ public class HelloController {
         System.out.println(username);
     }
 
-
-
+    String username = getUsername();
 
     public void switchToHome(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("hello-view.fxml")); //pass scene name here

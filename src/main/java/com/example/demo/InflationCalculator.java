@@ -117,23 +117,33 @@ public class InflationCalculator extends NullPointerException {
         double t = Double.parseDouble(time.getText());
 
         double r = Double.parseDouble(rate.getText());
-
-        r = r / 100;
-
-        for(int i = 1; i <= t; i++) {
-            p += p * r;
+        if (p<0.1 || r<0.1 || t<0.1){
+            errorInvested.setText("⚠ Invalid input");
+            errorRate.setText("⚠ Invalid input");
+            errorTime.setText("⚠ Invalid input");
+            returns.setText("");
+            invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
         }
+        else {
+            r = r / 100;
 
-        val= (float) p;
+            for (int i = 1; i <= t; i++) {
+                p += p * r;
+            }
 
-        label1.setText("Value after "+t +" years : ");
-        returns.setText(String.valueOf(val));
-        invested.setStyle(null);
-        rate.setStyle(null);
-        time.setStyle(null);
-        errorInvested.setText("");
-        errorRate.setText("");
-        errorTime.setText("");
+            val = (float) p;
+
+            label1.setText("Value after " + t + " years : ");
+            returns.setText(String.valueOf(val));
+            invested.setStyle(null);
+            rate.setStyle(null);
+            time.setStyle(null);
+            errorInvested.setText("");
+            errorRate.setText("");
+            errorTime.setText("");
+        }
     }
 
     private Stage stage;

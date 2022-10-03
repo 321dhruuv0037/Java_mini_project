@@ -21,6 +21,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import static com.example.demo.HelloController.setUsername;
+import static com.example.demo.HelloController.setWelcome;
+
 
 public class LoginController extends NullPointerException{
 
@@ -84,6 +86,7 @@ public class LoginController extends NullPointerException{
                         stage.show();
                         System.out.println(u);
                         setUsername(String.valueOf(u));
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

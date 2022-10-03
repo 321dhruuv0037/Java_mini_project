@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+import static com.example.demo.HelloController.setUsername;
 
 public class SignUpController extends NullPointerException {
 
@@ -135,45 +136,51 @@ public class SignUpController extends NullPointerException {
         Connection connectdb = connectnow.getConnection();
         String verifySignup = "select count(1) from demo.userdetails where Username = '" + username.getText() +"' ";
         Statement statement = null;
-        try{
-            statement=connectdb.createStatement();
-            ResultSet queryResult = statement.executeQuery(verifySignup);
-            while(queryResult.next()){
-                System.out.println("Inside while loop");
-                if(queryResult.getInt(1)==1){
-                    System.out.println("inside if");
-                    username.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
-                    errorUsername.setText("⚠ This username already exists");
-                }
-                else {
-                    System.out.println("inside else");
-                    String insertDetails = "INSERT INTO demo.accountdetails (`Fname`, `Lname`, `Username`, `Password`, `Email`, `Mobile_no.`, `Favourite_Animal`, `Age`) VALUES ('"+Fname.getText()+"','"+Lname.getText()+"','"+username.getText()+"','"+password.getText()+"','"+email.getText()+"','"+mobno.getText()+"','"+favanimal.getText()+"','"+age.getText()+"' \n)";
-                    String insertUserDetails = "INSERT INTO demo.userdetails (`Username`, `Password`) VALUES ('"+username.getText()+"','"+password.getText()+"'\n)";
-                    try {
-                        statement = connectdb.createStatement();
-                        int a = statement.executeUpdate(insertDetails);
-                        int b = statement.executeUpdate(insertUserDetails);
-                        if (a == 1 && b == 1) {
-                            System.out.println("Inserted data!");
+        /*int i = mobno.getText().length();
+        if (i>10 || i<10){
+            errorMobNo.setText("⚠ Please enter correct mobile no!");
+            mobno.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
+        }*/
+
+            try {
+                statement = connectdb.createStatement();
+                ResultSet queryResult = statement.executeQuery(verifySignup);
+                while (queryResult.next()) {
+                    System.out.println("Inside while loop");
+                    if (queryResult.getInt(1) == 1) {
+                        System.out.println("inside if");
+                        username.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
+                        errorUsername.setText("⚠ This username already exists");
+                    } else {
+                        System.out.println("inside else");
+                        String insertDetails = "INSERT INTO demo.accountdetails (`Fname`, `Lname`, `Username`, `Password`, `Email`, `Mobile_no`, `Favourite_Animal`, `Age`) VALUES ('" + Fname.getText() + "','" + Lname.getText() + "','" + username.getText() + "','" + password.getText() + "','" + email.getText() + "','" + mobno.getText() + "','" + favanimal.getText() + "','" + age.getText() + "' \n)";
+                        String insertUserDetails = "INSERT INTO demo.userdetails (`Username`, `Password`) VALUES ('" + username.getText() + "','" + password.getText() + "'\n)";
+                        try {
+                            statement = connectdb.createStatement();
+                            int a = statement.executeUpdate(insertDetails);
+                            int b = statement.executeUpdate(insertUserDetails);
+                            if (a == 1 && b == 1) {
+                                System.out.println("Inserted data!");
+                            } else {
+                                System.out.println("Failed to insert data");
+                            }
+                            Parent root = FXMLLoader.load(getClass().getResource("menu.fxml")); //pass scene name here
+                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                            Scene scene = new Scene(root);
+                            stage.setScene(scene);
+                            stage.show();
+                            setUsername(String.valueOf(username));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            e.getCause();
                         }
-                        else{
-                            System.out.println("Failed to insert data");
-                        }
-                        Parent root = FXMLLoader.load(getClass().getResource("menu.fxml")); //pass scene name here
-                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                        Scene scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.show();
-                    }catch (Exception e){
-                        e.printStackTrace();
-                        e.getCause();
                     }
                 }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
-    }
+
     public void switchToHome(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml")); //pass scene name here
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
