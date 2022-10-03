@@ -5,12 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -57,7 +54,9 @@ public class FinancialAdviceController extends NullPointerException {
 
     public String time_slot = null;
     public String date = null;
+
     public String username = getUsername();
+
     public void onSubmitButtonClick(ActionEvent event){
         System.out.println("Button clicked");
         if (!regarding.getText().isBlank() && !dd.getText().isBlank() && !mm.getText().isBlank() && !yyyy.getText().isBlank() && !time_slot.equals(null)){
@@ -92,10 +91,6 @@ public class FinancialAdviceController extends NullPointerException {
                 errorTime.setText(null);
             }
         }
-    }
-
-    private void wrapText(ActionEvent event){
-        note.setMaxWidth(381);
     }
 
     private void insertRequest(ActionEvent event) {

@@ -98,5 +98,12 @@ public class HelloController {
         stage.setScene(scene);
     }
 
+     public void switchToFeedback(ActionEvent event) throws IOException {
+         root = FXMLLoader.load(getClass().getResource("Feedback.fxml")); //pass scene name here
+         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+         scene = new Scene(root);
+         stage.setScene(scene);
+    }
+
 
 }

@@ -36,7 +36,7 @@
                               <Font name="Cambria" size="26.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="115.0" prefWidth="221.0" styleClass="menu_opt_left_pointy" text="Feedback" textAlignment="CENTER" translateX="345.0" translateY="-80.0">
+                        <Button mnemonicParsing="false" onAction="#switchToFeedback" prefHeight="115.0" prefWidth="221.0" styleClass="menu_opt_left_pointy" text="Feedback" textAlignment="CENTER" translateX="345.0" translateY="-80.0">
                            <font>
                               <Font name="Cambria" size="26.0" />
                            </font>
