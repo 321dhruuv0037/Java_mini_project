@@ -31,7 +31,7 @@
                               <Font name="Cambria" size="26.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="115.0" prefWidth="221.0" styleClass="menu_opt_right_pointy" text="Financial Advisor" textAlignment="CENTER" translateX="70.0" translateY="27.0" wrapText="true">
+                        <Button mnemonicParsing="false" onAction="#switchToFinancialAdvisor" prefHeight="115.0" prefWidth="221.0" styleClass="menu_opt_right_pointy" text="Financial Advisor" textAlignment="CENTER" translateX="70.0" translateY="27.0" wrapText="true">
                            <font>
                               <Font name="Cambria" size="26.0" />
                            </font>

@@ -54,12 +54,7 @@
                         <Font name="Cambria Bold" size="36.0" />
                      </font>
                   </Text>
-                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToHome" prefHeight="27.0" prefWidth="72.0" styleClass="menu_opt_right_pointy" stylesheets="@style.css" text="Exit" translateX="-722.0" translateY="8.0">
-                     <font>
-                        <Font name="Cambria" size="15.0" />
-                     </font>
-                  </Button>
-                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="27.0" prefWidth="72.0" styleClass="menu_opt_left_pointy" stylesheets="@style.css" text="Back" translateX="-1301.0" translateY="8.0">
+                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="27.0" prefWidth="72.0" styleClass="white_round_button" stylesheets="@style.css" text="Back" translateX="-722.0" translateY="8.0">
                      <font>
                         <Font name="Cambria" size="15.0" />
                      </font>
