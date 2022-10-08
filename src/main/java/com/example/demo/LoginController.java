@@ -15,13 +15,15 @@ import javafx.scene.control.TextField;
 
 
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import static com.example.demo.HelloController.setUsername;
-import static com.example.demo.HelloController.setWelcome;
+
 
 
 public class LoginController extends NullPointerException{
@@ -67,9 +69,10 @@ public class LoginController extends NullPointerException{
     }
 
     private void validateLogin(ActionEvent event) {
+        String encryptedPassword = encryption(password.getText());
         DBConnect connectnow = new DBConnect();
         Connection connectdb = connectnow.getConnection();
-        String verifylogin = "select count(1) from demo.userdetails where Username = '" + username.getText() + "' and Password  = '" + password.getText() + "'";
+        String verifylogin = "select count(1) from demo.userdetails where Username = '" + username.getText() + "' and Password  = '" + encryptedPassword + "'";
 
         Statement statement = null;
         try {
@@ -105,7 +108,36 @@ public class LoginController extends NullPointerException{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
 
+    private String encryption(String text) {
+        String password = text;
+        String encryptedpassword1 = null;
+        try
+        {
+            MessageDigest m = MessageDigest.getInstance("MD5");
+            m.update(password.getBytes()); //using md5 update function
+
+            //Converting hash values to bytes
+            byte[] bytes = m.digest();
+
+            //Converting from bytes to hexadecimal form
+            StringBuilder s = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                s.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+
+            encryptedpassword1 = s.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+
+        System.out.println(password);
+        System.out.println("MD5: " + encryptedpassword1);
+        return encryptedpassword1;
     }
     public void switchToForgotPassword(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("forgot_password.fxml")); //pass scene name here

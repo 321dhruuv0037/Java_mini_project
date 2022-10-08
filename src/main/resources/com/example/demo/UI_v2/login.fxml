@@ -30,7 +30,7 @@
                         <Font name="Arial Bold Italic" size="20.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="username" layoutX="266.0" layoutY="127.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="261.0" style="-fx-background-color: white; -fx-background-radius: 15;">
+                  <TextField fx:id="username" layoutX="266.0" layoutY="127.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="261.0" styleClass="white_round_button" stylesheets="@../style.css">
                      <font>
                         <Font name="Cambria" size="15.0" />
                      </font></TextField>
@@ -39,12 +39,12 @@
                         <Font name="Arial Bold Italic" size="20.0" />
                      </font>
                   </Text>
-                  <PasswordField fx:id="password" layoutX="265.0" layoutY="183.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="262.0" style="-fx-background-color: white; -fx-background-radius: 15;">
+                  <PasswordField fx:id="password" layoutX="265.0" layoutY="183.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="262.0" styleClass="white_round_button" stylesheets="@../style.css">
                      <font>
                         <Font name="Cambria" size="15.0" />
                      </font>
                   </PasswordField>
-                  <Button layoutX="218.0" layoutY="249.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="25.0" prefWidth="66.0" style="-fx-background-radius: 15; -fx-background-color: #e6f1fc;" text="Login" translateX="-58.0">
+                  <Button layoutX="218.0" layoutY="249.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="25.0" prefWidth="66.0" style="-fx-background-radius: 15; -fx-background-color: #e6f1fc;" text="Login" translateX="-58.0">
                      <font>
                         <Font name="Cambria" size="15.0" />
                      </font>
@@ -61,12 +61,12 @@
                   </Button>
                   <Label fx:id="errorUsername" layoutX="133.0" layoutY="157.0" prefHeight="18.0" prefWidth="389.0" textFill="#c31010" />
                   <Label fx:id="errorPassword" layoutX="138.0" layoutY="213.0" prefHeight="18.0" prefWidth="390.0" textFill="#c31010" />
-                  <Text fill="WHITE" layoutX="320.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot password?">
+                  <Text fill="WHITE" layoutX="320.0" layoutY="320.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot password?">
                      <font>
                         <Font name="Arial Bold Italic" size="12.0" />
                      </font>
                   </Text>
-                  <Button layoutX="279.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchToForgotPassword" opacity="0.0" prefHeight="30.0" prefWidth="185.0" style="-fx-background-radius: 15; -fx-background-color: #e6f1fc;" textFill="#070606" textOverrun="CLIP">
+                  <Button layoutX="279.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchToForgotPassword" opacity="0.0" prefHeight="30.0" prefWidth="185.0" textFill="#070606" textOverrun="CLIP">
                      <font>
                         <Font name="Cambria" size="15.0" />
                      </font>
