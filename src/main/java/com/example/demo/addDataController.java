@@ -97,7 +97,7 @@ public class addDataController {
                 rate.setStyle(null);
             }
             if (time.getText().isBlank()){
-                errorTime.setText("⚠ Please enter time period");
+                errorTime.setText("⚠ Please enter time(yrs)");
                 time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
             }
             else {
@@ -152,7 +152,15 @@ public class addDataController {
             }
         }
         catch (NumberFormatException e){
-            e.printStackTrace();
+            errorReturns.setText("⚠ Invalid input");
+            returns.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            errorTime.setText("⚠ Invalid input");
+            time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            errorRate.setText("⚠ Please enter rate");
+            rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            errorInvested.setText("⚠ Invalid input");
+            invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+
         }
 
     }

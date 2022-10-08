@@ -28,6 +28,8 @@ public class tableController implements Initializable {
 
     @FXML
     private TableView<table> portfolioTable;
+    @FXML
+    private TableColumn<table, String> idCol;
 
     @FXML
     private TableColumn<table, String> rateCol;
@@ -48,6 +50,7 @@ public class tableController implements Initializable {
     final ObservableList<table> listview = FXCollections.observableArrayList();
     @Override
     public void initialize(URL url, ResourceBundle rb){
+        idCol.setCellValueFactory(new PropertyValueFactory<>("Id"));
         typeCol.setCellValueFactory(new PropertyValueFactory<>("Type"));
         investedCol.setCellValueFactory(new PropertyValueFactory<>("Invested"));
         rateCol.setCellValueFactory(new PropertyValueFactory<>("Rate"));
@@ -72,7 +75,8 @@ public class tableController implements Initializable {
 
                  */
 
-                listview.add(new table(resultSet.getString("Type"),
+                listview.add(new table(resultSet.getString("Id"),
+                        resultSet.getString("Type"),
                         resultSet.getString("Invested"),
                         resultSet.getString("Rate"),
                         resultSet.getString("Time"),
@@ -93,7 +97,7 @@ public class tableController implements Initializable {
 
     public void loadData(ActionEvent event) throws SQLException, ClassNotFoundException {
         listview.clear();
-
+        idCol.setCellValueFactory(new PropertyValueFactory<>("Id"));
         typeCol.setCellValueFactory(new PropertyValueFactory<>("Type"));
         investedCol.setCellValueFactory(new PropertyValueFactory<>("Invested"));
         rateCol.setCellValueFactory(new PropertyValueFactory<>("Rate"));
@@ -118,7 +122,8 @@ public class tableController implements Initializable {
 
                  */
 
-                listview.add(new table(resultSet.getString("Type"),
+                listview.add(new table(resultSet.getString("Id"),
+                        resultSet.getString("Type"),
                         resultSet.getString("Invested"),
                         resultSet.getString("Rate"),
                         resultSet.getString("Time"),

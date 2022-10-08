@@ -16,6 +16,7 @@
       </Label>
       <TableView fx:id="portfolioTable" layoutY="100.0" prefHeight="531.0" prefWidth="844.0">
          <columns>
+            <TableColumn fx:id="idCol" prefWidth="75.0" text="Portfolio ID" />
             <TableColumn fx:id="typeCol" prefWidth="75.0" text="Type" />
             <TableColumn fx:id="investedCol" prefWidth="75.0" text="Invested" />
             <TableColumn fx:id="rateCol" prefWidth="75.0" text="Rate" />

@@ -2,13 +2,15 @@ package com.example.demo;
 
 
 public class table {
+    String id;
     String type;
     String invested;
     String rate;
     String time;
     String returns;
 
-    public table(String type, String invested, String rate, String time, String returns) {
+    public table(String id, String type, String invested, String rate, String time, String returns) {
+        this.id = id;
         this.type = type;
         this.invested = invested;
         this.rate = rate;
@@ -16,6 +18,13 @@ public class table {
         this.returns = returns;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
     public String getType() {
         return type;
     }
