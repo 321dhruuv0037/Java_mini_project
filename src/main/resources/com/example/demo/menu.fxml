@@ -49,7 +49,7 @@
                               <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#switchToLoan" prefHeight="115.0" prefWidth="221.0" style="-fx-background-radius: 0 25 25 0; -fx-background-color: white;" text="Portfolio" textAlignment="CENTER">
+                        <Button mnemonicParsing="false" onAction="#switchToPortfolio" prefHeight="115.0" prefWidth="221.0" style="-fx-background-radius: 0 25 25 0; -fx-background-color: white;" text="Portfolio" textAlignment="CENTER">
                            <font>
                               <Font name="Cambria" size="26.0" />
                            </font>

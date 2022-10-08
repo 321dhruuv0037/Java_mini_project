@@ -104,6 +104,12 @@ public class HelloController {
          scene = new Scene(root);
          stage.setScene(scene);
     }
+    public void switchToPortfolio(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("table.fxml")); //pass scene name here
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+    }
 
 
 }
