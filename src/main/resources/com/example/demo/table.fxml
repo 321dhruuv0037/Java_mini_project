@@ -36,12 +36,12 @@
             <Font name="Cambria" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="163.0" layoutY="56.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="134.0" styleClass="black_round_button" stylesheets="@style.css" text="Add" textFill="WHITE">
+      <Button layoutX="163.0" layoutY="56.0" mnemonicParsing="false" onAction="#switchToAddData" prefHeight="26.0" prefWidth="134.0" styleClass="black_round_button" stylesheets="@style.css" text="Add" textFill="WHITE">
          <font>
             <Font name="Cambria" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="319.0" layoutY="56.0" mnemonicParsing="false" onAction="#loadData" prefHeight="26.0" prefWidth="134.0" styleClass="black_round_button" stylesheets="@style.css" text="Delete" textFill="WHITE">
+      <Button layoutX="319.0" layoutY="56.0" mnemonicParsing="false" onAction="#switchToDeleteData" prefHeight="26.0" prefWidth="134.0" styleClass="black_round_button" stylesheets="@style.css" text="Delete" textFill="WHITE">
          <font>
             <Font name="Cambria" size="16.0" />
          </font>

@@ -19,6 +19,8 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
+import static com.example.demo.HelloController.getUsername;
+
 public class tableController implements Initializable {
 
     @FXML
@@ -41,6 +43,7 @@ public class tableController implements Initializable {
     Connection connection = null;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
+    String username = getUsername();
 
     final ObservableList<table> listview = FXCollections.observableArrayList();
     @Override
@@ -54,18 +57,20 @@ public class tableController implements Initializable {
             DBConnect connectnow = new DBConnect();
             Connection connectdb = connectnow.getConnection();
 
-            String sql = "select *  from demo.portfolio";
+            String sql = "select *  from demo.portfolio where Username = '" +username+"' ";
             Statement s = connectdb.createStatement();
             ResultSet resultSet = s.executeQuery(sql);
 
             while (resultSet.next()){
+                /*
                 System.out.println(
-                        resultSet.getString("Type")+" "+
+                                resultSet.getString("Type")+" "+
                                 resultSet.getString("Invested")+" "+
                                 resultSet.getString("Rate")+" "+
                                 resultSet.getString("Time")+" "+
                                 resultSet.getString("Returns"));
 
+                 */
 
                 listview.add(new table(resultSet.getString("Type"),
                         resultSet.getString("Invested"),
@@ -98,18 +103,20 @@ public class tableController implements Initializable {
             DBConnect connectnow = new DBConnect();
             Connection connectdb = connectnow.getConnection();
 
-            String sql = "select *  from demo.portfolio";
+            String sql = "select *  from demo.portfolio where Username = '" +username+"' ";
             Statement s = connectdb.createStatement();
             ResultSet resultSet = s.executeQuery(sql);
 
             while (resultSet.next()){
+                /*
                 System.out.println(
-                        resultSet.getString("Type")+" "+
+                                resultSet.getString("Type")+" "+
                                 resultSet.getString("Invested")+" "+
                                 resultSet.getString("Rate")+" "+
                                 resultSet.getString("Time")+" "+
                                 resultSet.getString("Returns"));
 
+                 */
 
                 listview.add(new table(resultSet.getString("Type"),
                         resultSet.getString("Invested"),

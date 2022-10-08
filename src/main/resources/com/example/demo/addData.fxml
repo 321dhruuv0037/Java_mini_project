@@ -1,14 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.demo.addDataController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="544.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.addDataController">
+   <children>
+      <Label prefHeight="46.0" prefWidth="721.0" styleClass="title-bg" stylesheets="@style.css" text="  Add data" textFill="WHITE">
+         <font>
+            <Font name="Cambria" size="25.0" />
+         </font>
+      </Label>
+      <Button layoutX="621.0" layoutY="8.0" mnemonicParsing="false" onAction="#switchToPortfolio" prefHeight="30.0" prefWidth="68.0" styleClass="white_round_button" stylesheets="@style.css" text="Back">
+         <font>
+            <Font name="Cambria" size="16.0" />
+         </font>
+      </Button>
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="69.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="684.0" styleClass="black_round_button" stylesheets="@style.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <Text fill="#d11d1d" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=" Investment type" wrappingWidth="126.13665771484375">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="13.336620330810547">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Text>
+            <MenuButton fx:id="regarding" alignment="CENTER" mnemonicParsing="false" popupSide="RIGHT" prefHeight="26.0" prefWidth="380.0" styleClass="white_round_button" text="SELECT">
+               <items>
+                  <MenuItem fx:id="fd" mnemonicParsing="false" onAction="#fd" text="FD" />
+                  <MenuItem fx:id="sip" mnemonicParsing="false" onAction="#sip" text="SIP" />
+                  <MenuItem fx:id="lumpsum" mnemonicParsing="false" onAction="#lumpsum" text="LUMP SUM" />
+                  <MenuItem fx:id="gold" mnemonicParsing="false" onAction="#gold" text="GOLD" />
+               </items>
+            </MenuButton>
+            <Label fx:id="errorType" prefHeight="20.0" prefWidth="163.0" textFill="#c31010">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="130.0" prefHeight="48.0" prefWidth="684.0" styleClass="sign_up_bg" stylesheets="@style.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="140.0">
+         <children>
+            <Text fill="#d11d1d" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=" Invested amount" wrappingWidth="126.13665771484375">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="13.336620330810547">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="invested" prefHeight="26.0" prefWidth="380.0" styleClass="sign-in-text-input" />
+            <Label fx:id="errorInvested" prefHeight="20.0" prefWidth="163.0" textFill="#c31010">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Button layoutX="280.0" layoutY="465.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" prefHeight="38.0" prefWidth="154.0" styleClass="sign_up_bg" stylesheets="@style.css" text="Sumbit" textFill="WHITE">
+         <font>
+            <Font name="Cambria" size="19.0" />
+         </font>
+      </Button>
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="197.0" prefHeight="48.0" prefWidth="684.0" styleClass="sign_up_bg" stylesheets="@style.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="210.0">
+         <children>
+            <Text fill="#d11d1d" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=" Rate of interest" wrappingWidth="126.13665771484375">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="13.336620330810547">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="rate" prefHeight="26.0" prefWidth="380.0" styleClass="sign-in-text-input" />
+            <Label fx:id="errorRate" prefHeight="20.0" prefWidth="163.0" textFill="#c31010">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="261.0" prefHeight="48.0" prefWidth="684.0" styleClass="sign_up_bg" stylesheets="@style.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="280.0">
+         <children>
+            <Text fill="#d11d1d" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=" Time period (yrs)" wrappingWidth="126.13665771484375">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="13.336620330810547">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="time" prefHeight="26.0" prefWidth="380.0" styleClass="sign-in-text-input" />
+            <Label fx:id="errorTime" prefHeight="20.0" prefWidth="163.0" textFill="#c31010">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="319.0" prefHeight="48.0" prefWidth="684.0" styleClass="sign_up_bg" stylesheets="@style.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="350.0">
+         <children>
+            <Text fill="#d11d1d" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=" Returns" wrappingWidth="126.13665771484375">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="13.336620330810547">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="returns" prefHeight="26.0" prefWidth="380.0" styleClass="sign-in-text-input" />
+            <Label fx:id="errorReturns" prefHeight="20.0" prefWidth="163.0" textFill="#c31010">
+               <font>
+                  <Font name="Cambria" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
 </AnchorPane>
