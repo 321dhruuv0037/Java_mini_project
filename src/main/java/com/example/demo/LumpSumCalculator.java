@@ -106,33 +106,45 @@ public class LumpSumCalculator extends NullPointerException {
 
     }
     public void calculateLumpSum(ActionEvent event){
-        float final_val;
+        try {
+            float final_val;
 
-        double p = Double.parseDouble(invested.getText());
+            double p = Double.parseDouble(invested.getText());
 
-        double t = Double.parseDouble(time.getText());
+            double t = Double.parseDouble(time.getText());
 
-        double r = Double.parseDouble(rate.getText());
-        if (p<0.1 || r<0.1 || t<0.1){
+            double r = Double.parseDouble(rate.getText());
+            if (p < 0.1 || r < 0.1 || t < 0.1) {
+                errorInvested.setText("⚠ Invalid input");
+                errorRate.setText("⚠ Invalid input");
+                errorTime.setText("⚠ Invalid input");
+                returns.setText("");
+                invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+
+            } else {
+                final_val = (float) (p * (Math.pow((1 + r / 100), t)));
+
+                returns.setText(String.valueOf(final_val));
+                invested.setStyle(null);
+                rate.setStyle(null);
+                time.setStyle(null);
+                errorInvested.setText("");
+                errorRate.setText("");
+                errorTime.setText("");
+            }
+        }catch (NumberFormatException e){
             errorInvested.setText("⚠ Invalid input");
             errorRate.setText("⚠ Invalid input");
             errorTime.setText("⚠ Invalid input");
             returns.setText("");
+            invested.setText("");
+            rate.setText("");
+            time.setText("");
             invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
             rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
             time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-
-        }
-        else {
-            final_val = (float) (p * (Math.pow((1 + r / 100), t)));
-
-            returns.setText(String.valueOf(final_val));
-            invested.setStyle(null);
-            rate.setStyle(null);
-            time.setStyle(null);
-            errorInvested.setText("");
-            errorRate.setText("");
-            errorTime.setText("");
         }
 
     }

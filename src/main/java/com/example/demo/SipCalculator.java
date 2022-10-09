@@ -105,46 +105,58 @@ public class SipCalculator extends NullPointerException{
 
     }
     public void calculateSIP(ActionEvent event){
-        double ret, amount, i, x;
-        float total;
+        try {
+            double ret, amount, i, x;
+            float total;
 
-        double p = Double.parseDouble(invested.getText());
+            double p = Double.parseDouble(invested.getText());
 
-        double t = Double.parseDouble(time.getText());
+            double t = Double.parseDouble(time.getText());
 
-        double r = Double.parseDouble(rate.getText());
-        if (p<0.1 || r<0.1 || t<0.1){
+            double r = Double.parseDouble(rate.getText());
+            if (p<0.1 || r<0.1 || t<0.1){
+                errorInvested.setText("⚠ Invalid input");
+                errorRate.setText("⚠ Invalid input");
+                errorTime.setText("⚠ Invalid input");
+                returns.setText("");
+                invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            } else {
+
+                amount = p * 12;
+                x = amount;
+
+                for (i = 0; i < t; t--) {
+                    ret = (amount * r) / 100;
+                    amount = amount + ret;
+                    amount = amount + x;
+                }
+                amount = amount - x;
+                total = (float) amount;
+                System.out.println(total);
+
+                returns.setText(String.valueOf(total));
+                invested.setStyle(null);
+                rate.setStyle(null);
+                time.setStyle(null);
+                errorInvested.setText("");
+                errorRate.setText("");
+                errorTime.setText("");
+            }
+        }
+        catch (NumberFormatException e){
             errorInvested.setText("⚠ Invalid input");
             errorRate.setText("⚠ Invalid input");
             errorTime.setText("⚠ Invalid input");
             returns.setText("");
+            invested.setText("");
+            rate.setText("");
+            time.setText("");
             invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
             rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
             time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
         }
-        else {
-
-            amount = p * 12;
-            x = amount;
-
-            for (i = 0; i < t; t--) {
-                ret = (amount * r) / 100;
-                amount = amount + ret;
-                amount = amount + x;
-            }
-            amount = amount - x;
-            total = (float) amount;
-            System.out.println(total);
-
-            returns.setText(String.valueOf(total));
-            invested.setStyle(null);
-            rate.setStyle(null);
-            time.setStyle(null);
-            errorInvested.setText("");
-            errorRate.setText("");
-            errorTime.setText("");
-        }
-
     }
 
     private Stage stage;

@@ -1,14 +1,304 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.demo.CompareController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="544.0" prefWidth="705.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.CompareController">
+   <children>
+      <Label prefHeight="54.0" prefWidth="714.0" styleClass="title-bg" stylesheets="@style.css" text="  Compare" textFill="#ebf4fa" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font name="Cambria Bold Italic" size="25.0" />
+         </font>
+      </Label>
+      <Button layoutX="688.0" layoutY="13.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="27.0" prefWidth="72.0" styleClass="white_round_button" stylesheets="@style.css" text="Back">
+         <font>
+            <Font name="Cambria" size="15.0" />
+         </font>
+      </Button>
+      <HBox alignment="CENTER" layoutY="102.0" prefHeight="129.0" prefWidth="705.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="135.0" style="-fx-background-color: black; -fx-background-radius: 10;">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Investment type" textAlignment="CENTER" wrappingWidth="116.53668212890625">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <MenuButton fx:id="type1" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="83.0" styleClass="white_round_button" text="SELECT">
+                     <items>
+                        <MenuItem fx:id="fd" mnemonicParsing="false" onAction="#fd" text="FD" />
+                        <MenuItem fx:id="sip" mnemonicParsing="false" onAction="#sip" text="SIP" />
+                        <MenuItem fx:id="lumpsum" mnemonicParsing="false" onAction="#lumpsum" text="LUMP SUM" />
+                        <MenuItem fx:id="gold" mnemonicParsing="false" onAction="#gold" text="GOLD" />
+                     </items>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </MenuButton>
+                  <Label fx:id="errorType1" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="135.0" style="-fx-background-color: black; -fx-background-radius: 10;">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Invested Amount" textAlignment="CENTER" wrappingWidth="116.53668212890625">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="invested1" styleClass="white_round_button">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="errorInvested1" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="135.0" style="-fx-background-color: black; -fx-background-radius: 10;">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate of interest" textAlignment="CENTER" wrappingWidth="118.93670654296875">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="rate1" styleClass="white_round_button">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="errorRate1" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="135.0" style="-fx-background-color: black; -fx-background-radius: 10;">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Time period (in yrs)" textAlignment="CENTER" wrappingWidth="137.33673858642578">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="time1" styleClass="white_round_button">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="errorTime1" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="135.0" style="-fx-background-color: black; -fx-background-radius: 10;">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Returns" textAlignment="CENTER" wrappingWidth="95.7366943359375">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="returns1" styleClass="white_round_button">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="errorReturns1" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+      <Button layoutX="347.0" layoutY="272.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="96.0" styleClass="black_round_button" text="Compare" textFill="WHITE">
+         <font>
+            <Font name="Cambria" size="15.0" />
+         </font>
+      </Button>
+      <HBox alignment="CENTER" layoutX="5.0" layoutY="356.0" prefHeight="129.0" prefWidth="705.0">
+         <children>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="135.0" style="-fx-background-color: black; -fx-background-radius: 10;">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Investment type" textAlignment="CENTER" wrappingWidth="116.53668212890625">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <MenuButton fx:id="type2" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="83.0" styleClass="white_round_button" text="SELECT">
+                     <items>
+                        <MenuItem fx:id="fd1" mnemonicParsing="false" onAction="#fd1" text="FD" />
+                        <MenuItem fx:id="sip1" mnemonicParsing="false" onAction="#sip1" text="SIP" />
+                        <MenuItem fx:id="lumpsum1" mnemonicParsing="false" onAction="#lumpsum1" text="LUMP SUM" />
+                        <MenuItem fx:id="gold1" mnemonicParsing="false" onAction="#gold1" text="GOLD" />
+                     </items>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </MenuButton>
+                  <Label fx:id="errorType2" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="135.0" style="-fx-background-color: black; -fx-background-radius: 10;">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Invested Amount" textAlignment="CENTER" wrappingWidth="116.53668212890625">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="invested2" styleClass="white_round_button">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="errorInvested2" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="135.0" style="-fx-background-color: black; -fx-background-radius: 10;">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate of interest" textAlignment="CENTER" wrappingWidth="118.93670654296875">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="rate2" styleClass="white_round_button">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="errorRate2" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="135.0" style="-fx-background-color: black; -fx-background-radius: 10;">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Time period (in yrs)" textAlignment="CENTER" wrappingWidth="137.33673858642578">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="time2" styleClass="white_round_button">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="errorTime2" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="135.0" style="-fx-background-color: black; -fx-background-radius: 10;">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Returns" textAlignment="CENTER" wrappingWidth="95.7366943359375">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="returns2" styleClass="white_round_button">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="errorReturns2" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
 </AnchorPane>

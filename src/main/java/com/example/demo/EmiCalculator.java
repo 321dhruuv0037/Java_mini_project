@@ -111,34 +111,47 @@ public class EmiCalculator extends NullPointerException {
     }
 
     public void calculateEMI(ActionEvent event){
-        float emi;
+        try {
+            float emi;
 
-        double p = Double.parseDouble(invested.getText());
 
-        double t = Double.parseDouble(time.getText());
+            double p = Double.parseDouble(invested.getText());
 
-        double r = Double.parseDouble(rate.getText());
-        if (p<0.1 || r<0.1 || t<0.1){
+            double t = Double.parseDouble(time.getText());
+
+            double r = Double.parseDouble(rate.getText());
+            if (p < 0.1 || r < 0.1 || t < 0.1) {
+                errorInvested.setText("⚠ Invalid input");
+                errorRate.setText("⚠ Invalid input");
+                errorTime.setText("⚠ Invalid input");
+                returns.setText("");
+                invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            } else {
+                t = t * 12;
+                r = r / (12 * 100);
+                emi = (float) ((p * r * Math.pow(1 + r, t)) / (Math.pow(1 + r, t) - 1));
+
+                returns.setText(String.valueOf(emi));
+                invested.setStyle(null);
+                rate.setStyle(null);
+                time.setStyle(null);
+                errorInvested.setText("");
+                errorRate.setText("");
+                errorTime.setText("");
+            }
+        }catch (NumberFormatException e){
             errorInvested.setText("⚠ Invalid input");
             errorRate.setText("⚠ Invalid input");
             errorTime.setText("⚠ Invalid input");
             returns.setText("");
+            invested.setText("");
+            rate.setText("");
+            time.setText("");
             invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
             rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
             time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-        }
-        else {
-            t = t * 12;
-            r = r / (12 * 100);
-            emi = (float) ((p * r * Math.pow(1 + r, t)) / (Math.pow(1 + r, t) - 1));
-
-            returns.setText(String.valueOf(emi));
-            invested.setStyle(null);
-            rate.setStyle(null);
-            time.setStyle(null);
-            errorInvested.setText("");
-            errorRate.setText("");
-            errorTime.setText("");
         }
     }
 

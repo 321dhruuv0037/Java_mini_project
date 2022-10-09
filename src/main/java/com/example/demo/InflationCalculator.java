@@ -109,40 +109,52 @@ public class InflationCalculator extends NullPointerException {
     }
 
     private void calculateInflation(ActionEvent event) throws IOException {
+        try{
+            float val;
 
-        float val;
+            double p = Double.parseDouble(invested.getText());
 
-        double p = Double.parseDouble(invested.getText());
+            double t = Double.parseDouble(time.getText());
 
-        double t = Double.parseDouble(time.getText());
+            double r = Double.parseDouble(rate.getText());
+            if (p<0.1 || r<0.1 || t<0.1){
+                errorInvested.setText("⚠ Invalid input");
+                errorRate.setText("⚠ Invalid input");
+                errorTime.setText("⚠ Invalid input");
+                returns.setText("");
+                invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            }
+            else {
+                r = r / 100;
 
-        double r = Double.parseDouble(rate.getText());
-        if (p<0.1 || r<0.1 || t<0.1){
+                for (int i = 1; i <= t; i++) {
+                    p += p * r;
+                }
+
+                val = (float) p;
+
+                label1.setText("Value after " + t + " years : ");
+                returns.setText(String.valueOf(val));
+                invested.setStyle(null);
+                rate.setStyle(null);
+                time.setStyle(null);
+                errorInvested.setText("");
+                errorRate.setText("");
+                errorTime.setText("");
+            }
+        }catch (NumberFormatException e){
             errorInvested.setText("⚠ Invalid input");
             errorRate.setText("⚠ Invalid input");
             errorTime.setText("⚠ Invalid input");
             returns.setText("");
+            invested.setText("");
+            rate.setText("");
+            time.setText("");
             invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
             rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
             time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-        }
-        else {
-            r = r / 100;
-
-            for (int i = 1; i <= t; i++) {
-                p += p * r;
-            }
-
-            val = (float) p;
-
-            label1.setText("Value after " + t + " years : ");
-            returns.setText(String.valueOf(val));
-            invested.setStyle(null);
-            rate.setStyle(null);
-            time.setStyle(null);
-            errorInvested.setText("");
-            errorRate.setText("");
-            errorTime.setText("");
         }
     }
 
