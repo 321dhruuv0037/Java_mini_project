@@ -11,7 +11,10 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 
 
 import static com.example.demo.HelloController.getUsername;
@@ -119,27 +122,45 @@ public class FinancialAdviceController extends NullPointerException {
         if (note.getText().isBlank()) {
             note.setText("");
         }
-        //date = dd.getText()+"/"+mm.getText()+"/"+yyyy.getText();
-        System.out.println(date);
-        String insertDetails = "INSERT INTO demo.financial_advice (`Username`, `Regarding`, `Date`, `Time_slot`, `Note`) VALUES ('"+username+"', '"+choice+"', '"+date+"', '"+time_slot+"', '"+note.getText()+"'\n)";
+        String currentDate = null;
+        String sql = "select current_date()";
+        Statement s = null;
         try {
-            System.out.println("inside try");
-            statement = connectdb.createStatement();
-            int a = statement.executeUpdate(insertDetails);
-            if (a == 1 ) {
-                System.out.println("Inserted data!");
+            s = connectdb.createStatement();
+            ResultSet resultSet = s.executeQuery(sql);
+            if(resultSet.next()) {
+                currentDate = resultSet.getString(1);
             }
-            else{
-                System.out.println("Failed to insert data");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        if(date.compareTo(currentDate) > 0) { //gives -ve value if input is before current_date and 0 if input == current_date
+
+            //date = dd.getText()+"/"+mm.getText()+"/"+yyyy.getText();
+            System.out.println("Current date : " + currentDate + " Input : " + date);
+            String insertDetails = "INSERT INTO demo.financial_advice (`Username`, `Regarding`, `Date`, `Time_slot`, `Note`) VALUES ('" + username + "', '" + choice + "', '" + date + "', '" + time_slot + "', '" + note.getText() + "'\n)";
+            try {
+                System.out.println("inside try");
+                statement = connectdb.createStatement();
+                int a = statement.executeUpdate(insertDetails);
+                if (a == 1) {
+                    System.out.println("Inserted data!");
+                } else {
+                    System.out.println("Failed to insert data");
+                }
+                Parent root = FXMLLoader.load(getClass().getResource("menu.fxml")); //pass scene name here
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+                e.getCause();
             }
-            Parent root = FXMLLoader.load(getClass().getResource("menu.fxml")); //pass scene name here
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        }catch (Exception e){
-            e.printStackTrace();
-            e.getCause();
+        }
+        else {
+            errorDate.setText("⚠ Enter date after "+currentDate);
         }
 
     }
