@@ -43,12 +43,12 @@
                <Font name="Cambria" size="16.0" />
             </font>
          </Text>
-                        <Button fx:id="Sign_up" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToSignUp" prefHeight="36.0" prefWidth="104.0" styleClass="sign-in-text-input" stylesheets="@style.css" text="Sign Up" textFill="SILVER" translateX="70.0" translateY="47.0">
+                        <Button fx:id="Sign_up" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToSignUp" prefHeight="36.0" prefWidth="104.0" styleClass="sign-in-text-input" stylesheets="@style.css" text="Sign Up" translateX="70.0" translateY="47.0">
                            <font>
                               <Font name="Cambria" size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="Sign_in" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="36.0" prefWidth="104.0" styleClass="white_round_button" stylesheets="@style.css" text="Sign In" textFill="SILVER" translateX="-69.0" translateY="12.0">
+                        <Button fx:id="Sign_in" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="36.0" prefWidth="104.0" styleClass="white_round_button" stylesheets="@style.css" text="Sign In" translateX="-69.0" translateY="12.0">
                            <font>
                               <Font name="Cambria" size="18.0" />
                            </font>

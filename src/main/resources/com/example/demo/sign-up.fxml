@@ -22,7 +22,7 @@
                         <Font name="Cambria" size="25.0" />
                      </font>
                   </Text>
-                  <Button mnemonicParsing="false" onAction="#switchToHome" prefHeight="30.0" prefWidth="78.0" styleClass="white_round_button" text="Back" textFill="SILVER" translateX="250.0" translateY="10.0">
+                  <Button mnemonicParsing="false" onAction="#switchToHome" prefHeight="30.0" prefWidth="78.0" styleClass="white_round_button" text="Back" translateX="250.0" translateY="10.0">
                      <font>
                         <Font name="Cambria" size="15.0" />
                      </font>
@@ -187,7 +187,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onSignUpButtonClick" prefHeight="30.0" prefWidth="121.0" styleClass="white_round_button" text="Log in" textFill="SILVER">
+                  <Button mnemonicParsing="false" onAction="#onSignUpButtonClick" prefHeight="30.0" prefWidth="121.0" styleClass="white_round_button" text="Log in">
                      <font>
                         <Font name="Cambria" size="15.0" />
                      </font>

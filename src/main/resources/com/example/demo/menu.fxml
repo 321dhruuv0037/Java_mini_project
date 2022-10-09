@@ -85,7 +85,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToHome" prefHeight="42.0" prefWidth="107.0" styleClass="white_round_button" text="Log out" textFill="SILVER">
+                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToHome" prefHeight="42.0" prefWidth="107.0" styleClass="white_round_button" text="Log out">
                      <font>
                         <Font name="Cambria" size="20.0" />
                      </font>
