@@ -11,7 +11,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.Statement;
 import java.util.Scanner;
+
+import static com.example.demo.HelloController.getUsername;
 
 public class LumpSumCalculator extends NullPointerException {
 
@@ -35,6 +39,13 @@ public class LumpSumCalculator extends NullPointerException {
 
     @FXML
     private TextField time;
+    @FXML
+    private Label errorText;
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+    public String username=getUsername();
+    public String choice="LUMP SUM";
 
     public void onCalculateButtonClick(ActionEvent event) throws IOException{
         if (!invested.getText().isBlank() && !time.getText().isBlank() && !rate.getText().isBlank()){
@@ -149,9 +160,49 @@ public class LumpSumCalculator extends NullPointerException {
 
     }
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+    public void addValuesIntoPortfolio(ActionEvent event) {
+        System.out.println("Inside function ");
+        DBConnect connectnow = new DBConnect();
+        Connection connectdb = connectnow.getConnection();
+        Statement statement = null;
+        System.out.println(username);
+        try {
+            double p = Double.parseDouble(invested.getText());
+
+            double t = Double.parseDouble(time.getText());
+
+            double r = Double.parseDouble(rate.getText());
+
+            double ret = Double.parseDouble(returns.getText());
+
+            String insertDetails = "INSERT INTO demo.portfolio (`Username`, `Type`, `Invested`, `Rate`, `Time`, `Returns`) VALUES ('"+username+"', '"+choice+"', '"+invested.getText()+"', '"+rate.getText()+"', '"+time.getText()+"', '"+returns.getText()+"'\n)";
+            try {
+                System.out.println("inside try");
+                statement = connectdb.createStatement();
+                int a = statement.executeUpdate(insertDetails);
+                if (a == 1 ) {
+                    System.out.println("Inserted data!");
+                }
+                else{
+                    System.out.println("Failed to insert data");
+                }
+                Parent root = FXMLLoader.load(getClass().getResource("table.fxml")); //pass scene name here
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }catch (Exception e){
+                e.printStackTrace();
+                e.getCause();
+            }
+        }
+        catch (NumberFormatException e){
+            errorText.setText("⚠ Calculate value before inserting data");
+
+        }
+
+    }
+
 
     public void switchToInvestment(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("investment.fxml")); //pass scene name here

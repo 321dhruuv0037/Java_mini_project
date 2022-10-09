@@ -109,9 +109,12 @@ public class CompareController {
     public void onCompareButtonClick(ActionEvent event){
         choice1 = choice1;
         choice2 = choice2;
-        if (!invested1.getText().isBlank() && !rate1.getText().isBlank() && !time1.getText().isBlank() && choice1!=null){
-            System.out.println("Validating choice 1");
+        if (!invested1.getText().isBlank() && !rate1.getText().isBlank() && !time1.getText().isBlank() && choice1!=null &&
+        !invested2.getText().isBlank() && !rate2.getText().isBlank() && !time2.getText().isBlank() && choice2!=null){
+            System.out.println("Validating");
             calculateField1(event);
+            calculateField2(event);
+            compareReturns(event);
         }
         else {
             if (choice1==null){
@@ -156,12 +159,6 @@ public class CompareController {
                 returns1.setStyle(null);
             }
 
-        }
-        if (!invested2.getText().isBlank() && !rate2.getText().isBlank() && !time2.getText().isBlank() && choice2!=null){
-            System.out.println("Validating choice 2");
-            calculateField2(event);
-        }
-        else {
             if (choice2==null){
                 //System.out.println("Choice error");
                 errorType2.setText("⚠ Invalid input!");
@@ -207,10 +204,220 @@ public class CompareController {
 
     }
 
-    private void calculateField2(ActionEvent event) {
+    private void compareReturns(ActionEvent event) {
+        float a = Float.parseFloat(returns1.getText());
+        float b = Float.parseFloat(returns2.getText());
+        if (a>b){
+            returns1.setStyle("-fx-border-color: green; -fx-border-width: 5px; -fx-border-radius: 90px");
+        } else if (b>a) {
+            returns2.setStyle("-fx-border-color: green; -fx-border-width: 5px; -fx-border-radius: 90px");
+        }
     }
 
     private void calculateField1(ActionEvent event) {
+        try{
+            double p = Double.parseDouble(invested1.getText());
+
+            double t = Double.parseDouble(time1.getText());
+
+            double r = Double.parseDouble(rate1.getText());
+            if (p < 0.1 || r < 0.1 || t < 0.1) {
+                errorInvested1.setText("⚠ Invalid input");
+                errorRate1.setText("⚠ Invalid input");
+                errorTime1.setText("⚠ Invalid input");
+                returns1.setText("");
+                invested1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                rate1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                time1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            } else {
+                if (choice1=="FD"){
+                    double interest;
+                    float final_val;
+                    interest = (p * t * r) / 100;
+                    final_val = (float) (interest + p);
+
+                    returns1.setText(String.valueOf(final_val));
+                    invested1.setStyle(null);
+                    rate1.setStyle(null);
+                    time1.setStyle(null);
+                    returns1.setStyle(null);
+                    errorType1.setText("");
+                    errorReturns1.setText("");
+                    errorInvested1.setText("");
+                    errorRate1.setText("");
+                    errorTime1.setText("");
+                } else if (choice1=="SIP") {
+                    double ret, amount, i, x;
+                    float total;
+                    amount = p * 12;
+                    x = amount;
+
+                    for (i = 0; i < t; t--) {
+                        ret = (amount * r) / 100;
+                        amount = amount + ret;
+                        amount = amount + x;
+                    }
+                    amount = amount - x;
+                    total = (float) amount;
+                    System.out.println(total);
+
+                    returns1.setText(String.valueOf(total));
+                    invested1.setStyle(null);
+                    rate1.setStyle(null);
+                    time1.setStyle(null);
+                    returns1.setStyle(null);
+                    errorType1.setText("");
+                    errorReturns1.setText("");
+                    errorInvested1.setText("");
+                    errorRate1.setText("");
+                    errorTime1.setText("");
+                } else if (choice1=="LUMP SUM") {
+                    float final_val;
+                    final_val = (float) (p * (Math.pow((1 + r / 100), t)));
+
+                    returns1.setText(String.valueOf(final_val));
+                    invested1.setStyle(null);
+                    rate1.setStyle(null);
+                    time1.setStyle(null);
+                    returns1.setStyle(null);
+                    errorType1.setText("");
+                    errorReturns1.setText("");
+                    errorInvested1.setText("");
+                    errorRate1.setText("");
+                    errorTime1.setText("");
+
+                } else if (choice1=="GOLD") {
+                    float final_val;
+                    final_val = (float) (p * (Math.pow((1 + r / 100), t)));
+
+                    returns1.setText(String.valueOf(final_val));
+                    invested1.setStyle(null);
+                    rate1.setStyle(null);
+                    time1.setStyle(null);
+                    returns1.setStyle(null);
+                    errorType1.setText("");
+                    errorReturns1.setText("");
+                    errorInvested1.setText("");
+                    errorRate1.setText("");
+                    errorTime1.setText("");
+                }
+            }
+
+        }catch (NumberFormatException e){
+            errorInvested1.setText("⚠ Invalid input");
+            errorRate1.setText("⚠ Invalid input");
+            errorTime1.setText("⚠ Invalid input");
+            returns1.setText("");
+            invested1.setText("");
+            rate1.setText("");
+            time1.setText("");
+            invested1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            rate1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            time1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+        }
+
+    }
+    private void calculateField2(ActionEvent event) {
+        try{
+            double p = Double.parseDouble(invested2.getText());
+
+            double t = Double.parseDouble(time2.getText());
+
+            double r = Double.parseDouble(rate2.getText());
+            if (p < 0.1 || r < 0.1 || t < 0.1) {
+                errorInvested2.setText("⚠ Invalid input");
+                errorRate2.setText("⚠ Invalid input");
+                errorTime2.setText("⚠ Invalid input");
+                returns2.setText("");
+                invested2.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                rate2.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                time2.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            } else {
+                if (choice2=="FD"){
+                    double interest;
+                    float final_val;
+                    interest = (p * t * r) / 100;
+                    final_val = (float) (interest + p);
+
+                    returns2.setText(String.valueOf(final_val));
+                    invested2.setStyle(null);
+                    rate2.setStyle(null);
+                    time2.setStyle(null);
+                    returns2.setStyle(null);
+                    errorType2.setText("");
+                    errorReturns2.setText("");
+                    errorInvested2.setText("");
+                    errorRate2.setText("");
+                    errorTime2.setText("");
+                } else if (choice2=="SIP") {
+                    double ret, amount, i, x;
+                    float total;
+                    amount = p * 12;
+                    x = amount;
+
+                    for (i = 0; i < t; t--) {
+                        ret = (amount * r) / 100;
+                        amount = amount + ret;
+                        amount = amount + x;
+                    }
+                    amount = amount - x;
+                    total = (float) amount;
+                    System.out.println(total);
+
+                    returns2.setText(String.valueOf(total));
+                    invested2.setStyle(null);
+                    rate2.setStyle(null);
+                    time2.setStyle(null);
+                    returns2.setStyle(null);
+                    errorType2.setText("");
+                    errorReturns2.setText("");
+                    errorInvested2.setText("");
+                    errorRate2.setText("");
+                    errorTime2.setText("");
+                } else if (choice2=="LUMP SUM") {
+                    float final_val;
+                    final_val = (float) (p * (Math.pow((1 + r / 100), t)));
+
+                    returns2.setText(String.valueOf(final_val));
+                    invested2.setStyle(null);
+                    rate2.setStyle(null);
+                    time2.setStyle(null);
+                    returns2.setStyle(null);
+                    errorType2.setText("");
+                    errorReturns2.setText("");
+                    errorInvested2.setText("");
+                    errorRate2.setText("");
+                    errorTime2.setText("");
+
+                } else if (choice2=="GOLD") {
+                    float final_val;
+                    final_val = (float) (p * (Math.pow((1 + r / 100), t)));
+
+                    returns2.setText(String.valueOf(final_val));
+                    invested2.setStyle(null);
+                    rate2.setStyle(null);
+                    time2.setStyle(null);
+                    returns2.setStyle(null);
+                    errorType2.setText("");
+                    errorReturns2.setText("");
+                    errorInvested2.setText("");
+                    errorRate2.setText("");
+                    errorTime2.setText("");
+                }
+            }
+
+        }catch (NumberFormatException e){
+            errorInvested2.setText("⚠ Invalid input");
+            errorRate2.setText("⚠ Invalid input");
+            errorTime2.setText("⚠ Invalid input");
+            returns2.setText("");
+            invested2.setText("");
+            rate2.setText("");
+            time2.setText("");
+            invested2.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            rate2.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            time2.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+        }
 
     }
 
@@ -254,17 +461,3 @@ public class CompareController {
         stage.show();
     }
 }
-/*catch (NumberFormatException e){
-            errorInvested.setText("⚠ Invalid input");
-            errorRate.setText("⚠ Invalid input");
-            errorTime.setText("⚠ Invalid input");
-            returns.setText("");
-            invested.setText("");
-            rate.setText("");
-            time.setText("");
-            invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-        }
-
- */

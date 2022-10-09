@@ -10,7 +10,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try{
-            Parent root = FXMLLoader.load(getClass().getResource("menu.fxml")); //pass scene name here
+            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml")); //pass scene name here
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

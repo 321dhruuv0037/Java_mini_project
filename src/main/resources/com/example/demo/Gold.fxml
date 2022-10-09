@@ -68,5 +68,16 @@
             <Font name="Cambria" size="15.0" />
          </font>
       </Button>
+      <Button layoutX="183.0" layoutY="486.0" mnemonicParsing="false" onAction="#addValuesIntoPortfolio" opacity="0.0" prefHeight="38.0" prefWidth="347.0" styleClass="sign_up_bg" stylesheets="@style.css" textFill="WHITE">
+         <font>
+            <Font name="Cambria" size="19.0" />
+         </font>
+      </Button>
+      <Label layoutX="188.0" layoutY="496.0" mouseTransparent="true" text="Click here to add details into investment portfolio">
+         <font>
+            <Font name="Cambria" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="errorText" alignment="TOP_CENTER" layoutX="208.0" layoutY="396.0" prefHeight="18.0" prefWidth="298.0" textFill="#c31010" />
    </children>
 </AnchorPane>

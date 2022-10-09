@@ -48,7 +48,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </MenuButton>
-                  <Label fx:id="errorType1" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                  <Label fx:id="errorType1" alignment="CENTER" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
@@ -76,7 +76,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label fx:id="errorInvested1" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                  <Label fx:id="errorInvested1" alignment="CENTER" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
@@ -98,7 +98,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label fx:id="errorRate1" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                  <Label fx:id="errorRate1" alignment="CENTER" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
@@ -123,7 +123,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label fx:id="errorTime1" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                  <Label fx:id="errorTime1" alignment="CENTER" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
@@ -148,7 +148,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label fx:id="errorReturns1" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                  <Label fx:id="errorReturns1" alignment="CENTER" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
@@ -160,7 +160,7 @@
             </VBox>
          </children>
       </HBox>
-      <Button layoutX="347.0" layoutY="272.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="96.0" styleClass="black_round_button" text="Compare" textFill="WHITE">
+      <Button layoutX="347.0" layoutY="272.0" mnemonicParsing="false" onAction="#onCompareButtonClick" prefHeight="48.0" prefWidth="96.0" styleClass="black_round_button" text="Compare" textFill="WHITE">
          <font>
             <Font name="Cambria" size="15.0" />
          </font>
@@ -188,7 +188,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </MenuButton>
-                  <Label fx:id="errorType2" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                  <Label fx:id="errorType2" alignment="CENTER" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
@@ -216,7 +216,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label fx:id="errorInvested2" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                  <Label fx:id="errorInvested2" alignment="CENTER" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
@@ -238,7 +238,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label fx:id="errorRate2" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                  <Label fx:id="errorRate2" alignment="CENTER" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
@@ -263,7 +263,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label fx:id="errorTime2" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                  <Label fx:id="errorTime2" alignment="CENTER" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
@@ -288,7 +288,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label fx:id="errorReturns2" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
+                  <Label fx:id="errorReturns2" alignment="CENTER" prefHeight="36.0" prefWidth="126.0" textFill="#c31010">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>

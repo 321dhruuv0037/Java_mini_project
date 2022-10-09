@@ -41,7 +41,7 @@
                   </HBox>
                   <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="121.0" prefWidth="500.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#switchToInvestment" prefHeight="115.0" prefWidth="221.0" style="-fx-background-radius: 25 0 0 25; -fx-background-color: white;" text="Compare" textAlignment="CENTER">
+                        <Button mnemonicParsing="false" onAction="#switchToCompare" prefHeight="115.0" prefWidth="221.0" style="-fx-background-radius: 25 0 0 25; -fx-background-color: white;" text="Compare" textAlignment="CENTER">
                            <font>
                               <Font name="Cambria" size="26.0" />
                            </font>
