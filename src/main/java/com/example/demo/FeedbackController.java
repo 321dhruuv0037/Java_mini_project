@@ -76,26 +76,38 @@ public class FeedbackController extends NullPointerException{
         DBConnect connectnow = new DBConnect();
         Connection connectdb = connectnow.getConnection();
         Statement statement = null;
-        System.out.println(username);
-        String insertDetails = "INSERT INTO demo.feedback (`Username`, `Rating`, `Subject`, `Feedback`) VALUES ('"+username+"', '"+rating.getText()+"', '"+subject.getText()+"', '"+feedback.getText()+"'\n)";
         try {
-            System.out.println("inside try");
-            statement = connectdb.createStatement();
-            int a = statement.executeUpdate(insertDetails);
-            if (a == 1 ) {
-                System.out.println("Inserted data!");
+            int rat = Integer.parseInt(rating.getText());
+
+            if (rat>-1 && rat<6) {
+                System.out.println(username);
+                String insertDetails = "INSERT INTO demo.feedback (`Username`, `Rating`, `Subject`, `Feedback`) VALUES ('" + username + "', '" + rating.getText() + "', '" + subject.getText() + "', '" + feedback.getText() + "'\n)";
+                try {
+                    System.out.println("inside try");
+                    statement = connectdb.createStatement();
+                    int a = statement.executeUpdate(insertDetails);
+                    if (a == 1) {
+                        System.out.println("Inserted data!");
+                    } else {
+                        System.out.println("Failed to insert data");
+                    }
+                    Parent root = FXMLLoader.load(getClass().getResource("menu.fxml")); //pass scene name here
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    e.getCause();
+                }
             }
-            else{
-                System.out.println("Failed to insert data");
+            else {
+                errorRating.setText("⚠ Invalid input!");
+                rating.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
             }
-            Parent root = FXMLLoader.load(getClass().getResource("menu.fxml")); //pass scene name here
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        }catch (Exception e){
-            e.printStackTrace();
-            e.getCause();
+        }catch (NumberFormatException e){
+            errorRating.setText("⚠ Invalid input!");
+            rating.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
         }
     }
 

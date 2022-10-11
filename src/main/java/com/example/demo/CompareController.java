@@ -83,12 +83,6 @@ public class CompareController {
     private TextField returns2;
 
     @FXML
-    private MenuItem sip;
-
-    @FXML
-    private MenuItem sip1;
-
-    @FXML
     private TextField time1;
 
     @FXML
@@ -222,14 +216,34 @@ public class CompareController {
 
             double r = Double.parseDouble(rate1.getText());
             if (p < 0.1 || r < 0.1 || t < 0.1) {
-                errorInvested1.setText("⚠ Invalid input");
-                errorRate1.setText("⚠ Invalid input");
-                errorTime1.setText("⚠ Invalid input");
+                if (p<0.1){
+                    errorInvested1.setText("⚠ Invalid input");
+                    invested1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+
+                }
+                else {
+                    errorInvested1.setText("");
+                    invested1.setStyle(null);
+                }
+                if (r<0.1) {
+                    errorRate1.setText("⚠ Invalid input");
+                    rate1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                }
+                else {
+                    errorRate1.setText("");
+                    rate1.setStyle(null);
+                }
+                if (t<0.1) {
+                    errorTime1.setText("⚠ Invalid input");
+                    time1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                }
+                else {
+                    errorTime1.setText("");
+                    time1.setStyle(null);
+                }
                 returns1.setText("");
-                invested1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-                rate1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-                time1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            } else {
+            }
+            else {
                 if (choice1=="FD"){
                     double interest;
                     float final_val;
@@ -237,31 +251,6 @@ public class CompareController {
                     final_val = (float) (interest + p);
 
                     returns1.setText(String.valueOf(final_val));
-                    invested1.setStyle(null);
-                    rate1.setStyle(null);
-                    time1.setStyle(null);
-                    returns1.setStyle(null);
-                    errorType1.setText("");
-                    errorReturns1.setText("");
-                    errorInvested1.setText("");
-                    errorRate1.setText("");
-                    errorTime1.setText("");
-                } else if (choice1=="SIP") {
-                    double ret, amount, i, x;
-                    float total;
-                    amount = p * 12;
-                    x = amount;
-
-                    for (i = 0; i < t; t--) {
-                        ret = (amount * r) / 100;
-                        amount = amount + ret;
-                        amount = amount + x;
-                    }
-                    amount = amount - x;
-                    total = (float) amount;
-                    System.out.println(total);
-
-                    returns1.setText(String.valueOf(total));
                     invested1.setStyle(null);
                     rate1.setStyle(null);
                     time1.setStyle(null);
@@ -349,31 +338,6 @@ public class CompareController {
                     errorInvested2.setText("");
                     errorRate2.setText("");
                     errorTime2.setText("");
-                } else if (choice2=="SIP") {
-                    double ret, amount, i, x;
-                    float total;
-                    amount = p * 12;
-                    x = amount;
-
-                    for (i = 0; i < t; t--) {
-                        ret = (amount * r) / 100;
-                        amount = amount + ret;
-                        amount = amount + x;
-                    }
-                    amount = amount - x;
-                    total = (float) amount;
-                    System.out.println(total);
-
-                    returns2.setText(String.valueOf(total));
-                    invested2.setStyle(null);
-                    rate2.setStyle(null);
-                    time2.setStyle(null);
-                    returns2.setStyle(null);
-                    errorType2.setText("");
-                    errorReturns2.setText("");
-                    errorInvested2.setText("");
-                    errorRate2.setText("");
-                    errorTime2.setText("");
                 } else if (choice2=="LUMP SUM") {
                     float final_val;
                     final_val = (float) (p * (Math.pow((1 + r / 100), t)));
@@ -425,10 +389,6 @@ public class CompareController {
         type1.setText("FD");
         choice1="FD";
     }
-    public void sip(ActionEvent event){
-        type1.setText("SIP");
-        choice1="SIP";
-    }
     public void lumpsum(ActionEvent event){
         type1.setText("LUMP SUM");
         choice1="LUMP SUM";
@@ -440,10 +400,6 @@ public class CompareController {
     public void fd1(ActionEvent event){
         type2.setText("FD");
         choice2="FD";
-    }
-    public void sip1(ActionEvent event){
-        type2.setText("SIP");
-        choice2="SIP";
     }
     public void lumpsum1(ActionEvent event){
         type2.setText("LUMP SUM");
