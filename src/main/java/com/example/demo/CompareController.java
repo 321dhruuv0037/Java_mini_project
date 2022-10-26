@@ -60,10 +60,6 @@ public class CompareController {
 
     @FXML
     private TextField invested1;
-
-    @FXML
-    private TextField invested2;
-
     @FXML
     private MenuItem lumpsum;
 
@@ -74,9 +70,6 @@ public class CompareController {
     private TextField rate1;
 
     @FXML
-    private TextField rate2;
-
-    @FXML
     private TextField returns1;
 
     @FXML
@@ -84,9 +77,6 @@ public class CompareController {
 
     @FXML
     private TextField time1;
-
-    @FXML
-    private TextField time2;
 
     @FXML
     private MenuButton type1;
@@ -103,8 +93,7 @@ public class CompareController {
     public void onCompareButtonClick(ActionEvent event){
         choice1 = choice1;
         choice2 = choice2;
-        if (!invested1.getText().isBlank() && !rate1.getText().isBlank() && !time1.getText().isBlank() && choice1!=null &&
-        !invested2.getText().isBlank() && !rate2.getText().isBlank() && !time2.getText().isBlank() && choice2!=null){
+        if (!invested1.getText().isBlank() && !rate1.getText().isBlank() && !time1.getText().isBlank() && choice1!=null && choice2!=null){
             System.out.println("Validating");
             calculateField1(event);
             calculateField2(event);
@@ -144,15 +133,6 @@ public class CompareController {
                 errorTime1.setText("");
                 time1.setStyle(null);
             }
-            if (returns1.getText().isBlank()){
-                errorReturns1.setText("⚠ Invalid input!");
-                returns1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            }
-            else {
-                errorReturns1.setText("");
-                returns1.setStyle(null);
-            }
-
             if (choice2==null){
                 //System.out.println("Choice error");
                 errorType2.setText("⚠ Invalid input!");
@@ -162,38 +142,7 @@ public class CompareController {
                 errorType2.setText(null);
                 //regarding.setStyle(null);
             }
-            if (invested2.getText().isBlank()){
-                errorInvested2.setText("⚠ Invalid input!");
-                invested2.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            }
-            else {
-                errorInvested2.setText("");
-                invested2.setStyle(null);
-            }
-            if (rate2.getText().isBlank()){
-                errorRate2.setText("⚠ Invalid input!");
-                rate2.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            }
-            else {
-                errorRate2.setText("");
-                rate2.setStyle(null);
-            }
-            if (time2.getText().isBlank()){
-                errorTime2.setText("⚠ Invalid input!");
-                time2.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            }
-            else {
-                errorTime2.setText("");
-                time2.setStyle(null);
-            }
-            if (returns2.getText().isBlank()){
-                errorReturns2.setText("⚠ Invalid input!");
-                returns2.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            }
-            else {
-                errorReturns2.setText("");
-                returns2.setStyle(null);
-            }
+
         }
 
     }
@@ -215,6 +164,7 @@ public class CompareController {
             double t = Double.parseDouble(time1.getText());
 
             double r = Double.parseDouble(rate1.getText());
+
             if (p < 0.1 || r < 0.1 || t < 0.1) {
                 if (p<0.1){
                     errorInvested1.setText("⚠ Invalid input");
@@ -308,20 +258,41 @@ public class CompareController {
     }
     private void calculateField2(ActionEvent event) {
         try{
-            double p = Double.parseDouble(invested2.getText());
+            double p = Double.parseDouble(invested1.getText());
 
-            double t = Double.parseDouble(time2.getText());
+            double t = Double.parseDouble(time1.getText());
 
-            double r = Double.parseDouble(rate2.getText());
+            double r = Double.parseDouble(rate1.getText());
+
             if (p < 0.1 || r < 0.1 || t < 0.1) {
-                errorInvested2.setText("⚠ Invalid input");
-                errorRate2.setText("⚠ Invalid input");
-                errorTime2.setText("⚠ Invalid input");
+                if (p<0.1){
+                    errorInvested1.setText("⚠ Invalid input");
+                    invested1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+
+                }
+                else {
+                    errorInvested1.setText("");
+                    invested1.setStyle(null);
+                }
+                if (r<0.1) {
+                    errorRate1.setText("⚠ Invalid input");
+                    rate1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                }
+                else {
+                    errorRate1.setText("");
+                    rate1.setStyle(null);
+                }
+                if (t<0.1) {
+                    errorTime1.setText("⚠ Invalid input");
+                    time1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                }
+                else {
+                    errorTime1.setText("");
+                    time1.setStyle(null);
+                }
                 returns2.setText("");
-                invested2.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-                rate2.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-                time2.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            } else {
+            }
+            else {
                 if (choice2=="FD"){
                     double interest;
                     float final_val;
@@ -329,58 +300,59 @@ public class CompareController {
                     final_val = (float) (interest + p);
 
                     returns2.setText(String.valueOf(final_val));
-                    invested2.setStyle(null);
-                    rate2.setStyle(null);
-                    time2.setStyle(null);
+                    invested1.setStyle(null);
+                    rate1.setStyle(null);
+                    time1.setStyle(null);
                     returns2.setStyle(null);
-                    errorType2.setText("");
+                    errorType1.setText("");
                     errorReturns2.setText("");
-                    errorInvested2.setText("");
-                    errorRate2.setText("");
-                    errorTime2.setText("");
+                    errorInvested1.setText("");
+                    errorRate1.setText("");
+                    errorTime1.setText("");
+
                 } else if (choice2=="LUMP SUM") {
                     float final_val;
                     final_val = (float) (p * (Math.pow((1 + r / 100), t)));
 
                     returns2.setText(String.valueOf(final_val));
-                    invested2.setStyle(null);
-                    rate2.setStyle(null);
-                    time2.setStyle(null);
+                    invested1.setStyle(null);
+                    rate1.setStyle(null);
+                    time1.setStyle(null);
                     returns2.setStyle(null);
-                    errorType2.setText("");
+                    errorType1.setText("");
                     errorReturns2.setText("");
-                    errorInvested2.setText("");
-                    errorRate2.setText("");
-                    errorTime2.setText("");
+                    errorInvested1.setText("");
+                    errorRate1.setText("");
+                    errorTime1.setText("");
 
                 } else if (choice2=="GOLD") {
                     float final_val;
                     final_val = (float) (p * (Math.pow((1 + r / 100), t)));
 
                     returns2.setText(String.valueOf(final_val));
-                    invested2.setStyle(null);
-                    rate2.setStyle(null);
-                    time2.setStyle(null);
+                    invested1.setStyle(null);
+                    rate1.setStyle(null);
+                    time1.setStyle(null);
                     returns2.setStyle(null);
-                    errorType2.setText("");
+                    errorType1.setText("");
                     errorReturns2.setText("");
-                    errorInvested2.setText("");
-                    errorRate2.setText("");
-                    errorTime2.setText("");
+                    errorInvested1.setText("");
+                    errorRate1.setText("");
+                    errorTime1.setText("");
                 }
             }
 
         }catch (NumberFormatException e){
-            errorInvested2.setText("⚠ Invalid input");
-            errorRate2.setText("⚠ Invalid input");
-            errorTime2.setText("⚠ Invalid input");
+            errorInvested1.setText("⚠ Invalid input");
+            errorRate1.setText("⚠ Invalid input");
+            errorTime1.setText("⚠ Invalid input");
             returns2.setText("");
-            invested2.setText("");
-            rate2.setText("");
-            time2.setText("");
-            invested2.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            rate2.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            time2.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            invested1.setText("");
+            rate1.setText("");
+            time1.setText("");
+            invested1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            rate1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            time1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
         }
 
     }
