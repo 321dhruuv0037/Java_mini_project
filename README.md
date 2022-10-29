@@ -23,6 +23,7 @@ Savio Mampilly : https://github.com/savio0703
 * A financial calculator. 
 * Helps make finance related decisions regarding investment and loan.
 * Connects users to financial advisors
+* Investment portfolio feature allows you to review your current investments as well as your previous ones.
 #
 
 | Features                          | 
@@ -31,5 +32,6 @@ Savio Mampilly : https://github.com/savio0703
 | Loan related calculations         | 
 | User can ask for financial advice |
 | Inflation calculator              |
+| Investment portfolio              |
 
 #
