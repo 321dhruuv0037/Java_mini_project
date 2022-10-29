@@ -127,13 +127,32 @@ public class FDCalculator extends  NullPointerException{
 
             double r = Double.parseDouble(rate.getText());
             if (p < 0.1 || r < 0.1 || t < 0.1) {
-                errorInvested.setText("⚠ Invalid input");
-                errorRate.setText("⚠ Invalid input");
-                errorTime.setText("⚠ Invalid input");
+                if (p<0.1){
+                    errorInvested.setText("⚠ Invalid input");
+                    invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+
+                }
+                else {
+                    errorInvested.setText("");
+                    invested.setStyle(null);
+                }
+                if (r<0.1) {
+                    errorRate.setText("⚠ Invalid input");
+                    rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                }
+                else {
+                    errorRate.setText("");
+                    rate.setStyle(null);
+                }
+                if (t<0.1) {
+                    errorTime.setText("⚠ Invalid input");
+                    time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                }
+                else {
+                    errorTime.setText("");
+                    time.setStyle(null);
+                }
                 returns.setText("");
-                invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-                rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-                time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
             } else {
                 interest = (p * t * r) / 100;
                 final_val = (float) (interest + p);

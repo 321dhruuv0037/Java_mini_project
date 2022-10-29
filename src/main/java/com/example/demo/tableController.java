@@ -166,6 +166,32 @@ public class tableController implements Initializable {
             }
             portfolioTable.setItems(listview);
 
+            String sqlInvested = "SELECT sum(invested) as Total_investment from demo.portfolio group by Username having username= '"+username+"'";
+            Statement s1 = null;
+            try {
+                s1 = connectdb.createStatement();
+                ResultSet resultSet1 = s1.executeQuery(sqlInvested);
+                if(resultSet1.next()) {
+                    total_invested = Float.valueOf(resultSet1.getString(1));
+                    System.out.println(total_invested);
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            String sqlReturn = "SELECT sum(returns) as Total_investment from demo.portfolio group by Username having username= '"+username+"'";
+            Statement s2 = null;
+            try {
+                s2 = connectdb.createStatement();
+                ResultSet resultSet2 = s2.executeQuery(sqlReturn);
+                if(resultSet2.next()) {
+                    total_return = Float.valueOf(resultSet2.getString(1));
+                    System.out.println(total_return);
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            totalInvestment.setText("Total Investment : " +total_invested);
+            totalReturns.setText("Total Returns : " +total_return);
         }
         catch (Exception e){
             e.printStackTrace();
