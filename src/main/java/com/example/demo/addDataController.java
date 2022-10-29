@@ -115,6 +115,148 @@ public class addDataController {
 
         }
     }
+    public void onCalculateButtonClick(ActionEvent event){
+        choice=choice;
+        if (choice!=null && !invested.getText().isBlank() && !rate.getText().isBlank() && !time.getText().isBlank()){
+            System.out.println("validating");
+            calculateValues(event);
+        }
+        else {
+            if (choice==null){
+                //System.out.println("Choice error");
+                errorType.setText("⚠ Invalid input!");
+                //regarding.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
+            }
+            else {
+                errorType.setText(null);
+                //regarding.setStyle(null);
+            }
+            if (invested.getText().isBlank()){
+                errorInvested.setText("⚠ Please enter amount");
+                invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            }
+            else {
+                errorInvested.setText("");
+                invested.setStyle(null);
+            }
+            if (rate.getText().isBlank()){
+                errorRate.setText("⚠ Please enter rate");
+                rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            }
+            else {
+                errorRate.setText("");
+                rate.setStyle(null);
+            }
+            if (time.getText().isBlank()){
+                errorTime.setText("⚠ Please enter time(yrs)");
+                time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            }
+            else {
+                errorTime.setText("");
+                time.setStyle(null);
+            }
+        }
+    }
+
+    private void calculateValues(ActionEvent event) {
+        try {
+            double p = Double.parseDouble(invested.getText());
+
+            double t = Double.parseDouble(time.getText());
+
+            double r = Double.parseDouble(rate.getText());
+
+            if (p < 0.1 || r < 0.1 || t < 0.1) {
+                if (p<0.1){
+                    errorInvested.setText("⚠ Invalid input");
+                    invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+
+                }
+                else {
+                    errorInvested.setText("");
+                    invested.setStyle(null);
+                }
+                if (r<0.1) {
+                    errorRate.setText("⚠ Invalid input");
+                    rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                }
+                else {
+                    errorRate.setText("");
+                    rate.setStyle(null);
+                }
+                if (t<0.1) {
+                    errorTime.setText("⚠ Invalid input");
+                    time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                }
+                else {
+                    errorTime.setText("");
+                    time.setStyle(null);
+                }
+                returns.setText("");
+            } else {
+                if (choice=="FD"){
+                    double interest;
+                    float final_val;
+                    interest = (p * t * r) / 100;
+                    final_val = (float) (interest + p);
+
+                    returns.setText(String.valueOf(final_val));
+                    invested.setStyle(null);
+                    rate.setStyle(null);
+                    time.setStyle(null);
+                    returns.setStyle(null);
+                    errorType.setText("");
+                    errorReturns.setText("");
+                    errorInvested.setText("");
+                    errorRate.setText("");
+                    errorTime.setText("");
+                } else if (choice=="LUMP SUM") {
+                    float final_val;
+                    final_val = (float) (p * (Math.pow((1 + r / 100), t)));
+
+                    returns.setText(String.valueOf(final_val));
+                    invested.setStyle(null);
+                    rate.setStyle(null);
+                    time.setStyle(null);
+                    returns.setStyle(null);
+                    errorType.setText("");
+                    errorReturns.setText("");
+                    errorInvested.setText("");
+                    errorRate.setText("");
+                    errorTime.setText("");
+
+                } else if (choice=="GOLD") {
+                    float final_val;
+                    final_val = (float) (p * (Math.pow((1 + r / 100), t)));
+
+                    returns.setText(String.valueOf(final_val));
+                    invested.setStyle(null);
+                    rate.setStyle(null);
+                    time.setStyle(null);
+                    returns.setStyle(null);
+                    errorType.setText("");
+                    errorReturns.setText("");
+                    errorInvested.setText("");
+                    errorRate.setText("");
+                    errorTime.setText("");
+                }
+            }
+
+        }catch (NumberFormatException e){
+            errorInvested.setText("⚠ Invalid input");
+            errorRate.setText("⚠ Invalid input");
+            errorTime.setText("⚠ Invalid input");
+            returns.setText("");
+            invested.setText("");
+            rate.setText("");
+            time.setText("");
+            invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+            time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+        }
+
+
+    }
 
     private void addValues(ActionEvent event) {
         System.out.println("Inside function ");
@@ -130,37 +272,104 @@ public class addDataController {
             double r = Double.parseDouble(rate.getText());
 
             double ret = Double.parseDouble(returns.getText());
-            String insertDetails = "INSERT INTO demo.portfolio (`Username`, `Type`, `Invested`, `Rate`, `Time`, `Returns`) VALUES ('"+username+"', '"+choice+"', '"+invested.getText()+"', '"+rate.getText()+"', '"+time.getText()+"', '"+returns.getText()+"'\n)";
-            try {
-                System.out.println("inside try");
-                statement = connectdb.createStatement();
-                int a = statement.executeUpdate(insertDetails);
-                if (a == 1 ) {
-                    System.out.println("Inserted data!");
+            if (p < 0.1 || r < 0.1 || t < 0.1) {
+                if (p<0.1){
+                    errorInvested.setText("⚠ Invalid input");
+                    invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+
                 }
-                else{
-                    System.out.println("Failed to insert data");
+                else {
+                    errorInvested.setText("");
+                    invested.setStyle(null);
                 }
-                Parent root = FXMLLoader.load(getClass().getResource("table.fxml")); //pass scene name here
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            }catch (Exception e){
-                e.printStackTrace();
-                e.getCause();
+                if (r<0.1) {
+                    errorRate.setText("⚠ Invalid input");
+                    rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                }
+                else {
+                    errorRate.setText("");
+                    rate.setStyle(null);
+                }
+                if (t<0.1) {
+                    errorTime.setText("⚠ Invalid input");
+                    time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                }
+                else {
+                    errorTime.setText("");
+                    time.setStyle(null);
+                }
+                returns.setText("");
+            } else {
+                if (choice=="FD"){
+                    double interest;
+                    float final_val;
+                    interest = (p * t * r) / 100;
+                    final_val = (float) (interest + p);
+
+                    returns.setText(String.valueOf(final_val));
+                    invested.setStyle(null);
+                    rate.setStyle(null);
+                    time.setStyle(null);
+                    returns.setStyle(null);
+                    errorType.setText("");
+                    errorReturns.setText("");
+                    errorInvested.setText("");
+                    errorRate.setText("");
+                    errorTime.setText("");
+                } else if (choice=="LUMP SUM") {
+                    float final_val;
+                    final_val = (float) (p * (Math.pow((1 + r / 100), t)));
+
+                    returns.setText(String.valueOf(final_val));
+                    invested.setStyle(null);
+                    rate.setStyle(null);
+                    time.setStyle(null);
+                    returns.setStyle(null);
+                    errorType.setText("");
+                    errorReturns.setText("");
+                    errorInvested.setText("");
+                    errorRate.setText("");
+                    errorTime.setText("");
+
+                } else if (choice=="GOLD") {
+                    float final_val;
+                    final_val = (float) (p * (Math.pow((1 + r / 100), t)));
+
+                    returns.setText(String.valueOf(final_val));
+                    invested.setStyle(null);
+                    rate.setStyle(null);
+                    time.setStyle(null);
+                    returns.setStyle(null);
+                    errorType.setText("");
+                    errorReturns.setText("");
+                    errorInvested.setText("");
+                    errorRate.setText("");
+                    errorTime.setText("");
+                }
+                String insertDetails = "INSERT INTO demo.portfolio (`Username`, `Type`, `Invested`, `Rate`, `Time`, `Returns`) VALUES ('" + username + "', '" + choice + "', '" + invested.getText() + "', '" + rate.getText() + "', '" + time.getText() + "', '" + returns.getText() + "'\n)";
+                try {
+                    System.out.println("inside try");
+                    statement = connectdb.createStatement();
+                    int a = statement.executeUpdate(insertDetails);
+                    if (a == 1) {
+                        System.out.println("Inserted data!");
+                    } else {
+                        System.out.println("Failed to insert data");
+                    }
+                    Parent root = FXMLLoader.load(getClass().getResource("table.fxml")); //pass scene name here
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    e.getCause();
+                }
             }
         }
         catch (NumberFormatException e){
             errorReturns.setText("⚠ Invalid input");
             returns.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            errorTime.setText("⚠ Invalid input");
-            time.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            errorRate.setText("⚠ Invalid input");
-            rate.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            errorInvested.setText("⚠ Invalid input");
-            invested.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-
         }
 
     }
