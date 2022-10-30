@@ -53,7 +53,7 @@ public class FeedbackController extends NullPointerException{
                 rating.setStyle(null);
             }
             if (subject.getText().isBlank()){
-                errorSubject.setText("⚠ Please enter date!");
+                errorSubject.setText("⚠ Please enter subject!");
                 subject.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
             }
             else {
@@ -61,7 +61,7 @@ public class FeedbackController extends NullPointerException{
                 subject.setStyle(null);
             }
             if (feedback.equals(null)){
-                errorFeedback.setText("⚠ Please select time slot!");
+                errorFeedback.setText("⚠ Please enter feedback!");
                 feedback.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
             }
             else {
