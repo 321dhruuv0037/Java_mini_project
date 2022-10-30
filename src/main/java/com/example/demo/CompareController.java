@@ -93,54 +93,55 @@ public class CompareController {
     public void onCompareButtonClick(ActionEvent event){
         choice1 = choice1;
         choice2 = choice2;
-        if (!invested1.getText().isBlank() && !rate1.getText().isBlank() && !time1.getText().isBlank() && choice1!=null && choice2!=null){
-            System.out.println("Validating");
-            calculateField1(event);
-            calculateField2(event);
-            compareReturns(event);
+        if (choice1.equals(choice2)){
+            errorType1.setText("⚠ Invalid input!");
+            errorType2.setText("⚠ Invalid input!");
         }
         else {
-            if (choice1==null){
-                //System.out.println("Choice error");
-                errorType1.setText("⚠ Invalid input!");
-                //regarding.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
-            }
-            else {
-                errorType1.setText(null);
-                //regarding.setStyle(null);
-            }
-            if (invested1.getText().isBlank()){
-                errorInvested1.setText("⚠ Invalid input!");
-                invested1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            }
-            else {
-                errorInvested1.setText("");
-                invested1.setStyle(null);
-            }
-            if (rate1.getText().isBlank()){
-                errorRate1.setText("⚠ Invalid input!");
-                rate1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            }
-            else {
-                errorRate1.setText("");
-                rate1.setStyle(null);
-            }
-            if (time1.getText().isBlank()){
-                errorTime1.setText("⚠ Invalid input!");
-                time1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
-            }
-            else {
-                errorTime1.setText("");
-                time1.setStyle(null);
-            }
-            if (choice2==null){
-                //System.out.println("Choice error");
-                errorType2.setText("⚠ Invalid input!");
-                //regarding.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
-            }
-            else {
-                errorType2.setText(null);
-                //regarding.setStyle(null);
+            if (!invested1.getText().isBlank() && !rate1.getText().isBlank() && !time1.getText().isBlank() && choice1 != null && choice2 != null) {
+                System.out.println("Validating");
+                calculateField1(event);
+                calculateField2(event);
+                compareReturns(event);
+            } else {
+                if (choice1 == null) {
+                    //System.out.println("Choice error");
+                    errorType1.setText("⚠ Invalid input!");
+                    //regarding.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
+                } else {
+                    errorType1.setText(null);
+                    //regarding.setStyle(null);
+                }
+                if (invested1.getText().isBlank()) {
+                    errorInvested1.setText("⚠ Invalid input!");
+                    invested1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                } else {
+                    errorInvested1.setText("");
+                    invested1.setStyle(null);
+                }
+                if (rate1.getText().isBlank()) {
+                    errorRate1.setText("⚠ Invalid input!");
+                    rate1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                } else {
+                    errorRate1.setText("");
+                    rate1.setStyle(null);
+                }
+                if (time1.getText().isBlank()) {
+                    errorTime1.setText("⚠ Invalid input!");
+                    time1.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 90px");
+                } else {
+                    errorTime1.setText("");
+                    time1.setStyle(null);
+                }
+                if (choice2 == null) {
+                    //System.out.println("Choice error");
+                    errorType2.setText("⚠ Invalid input!");
+                    //regarding.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
+                } else {
+                    errorType2.setText(null);
+                    //regarding.setStyle(null);
+                }
+
             }
 
         }
