@@ -16,7 +16,8 @@ Savio Mampilly : https://github.com/savio0703
 
 ## Technologies Used :
 * Intellij IDE
-* JavaFX Scene-builder
+* JavaFX 
+* Scene-builder
 * MySQL
 #
 ## What is CREST ?
